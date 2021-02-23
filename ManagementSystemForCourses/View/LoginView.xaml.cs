@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManagementSystemForCourses.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,14 @@ namespace ManagementSystemForCourses.View
         public LoginView()
         {
             InitializeComponent();
+            this.DataContext = new LoginViewModel();
+        }
+
+     
+        private void WinTopMove_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                this.DragMove();
         }
     }
 }
