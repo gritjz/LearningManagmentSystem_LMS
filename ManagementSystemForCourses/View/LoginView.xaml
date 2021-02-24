@@ -258,7 +258,7 @@
                 </Border>
                 <TextBlock Text="ZHANG'S COURSES MANAGEMENT SYSTEM" HorizontalAlignment="Center" FontSize="12" Foreground="White"/>
             </StackPanel>
-            <Grid Grid.Row="1" Margin="20,10">
+            <Grid Grid.Row="1" Margin="20,10" FocusManager.FocusedElement="{Binding ElementName=txtUserName}">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -267,17 +267,37 @@
                     <RowDefinition MinHeight="23" Height="auto"/>
                 </Grid.RowDefinitions>
                 <!--<TextBox Text="&#xe72f;" Height="40" FontFamily="../Assets/Fonts/#iconfont"/>-->
-                <TextBox Height="40" Style="{DynamicResource LoginViewUserNameTextBoxStyle}"
-                         Text="{Binding LoginModel.Username}"/>
-                <PasswordBox Grid.Row="1" Height="40" 
+                <TextBox Height="40" x:Name="txtUserName" Style="{DynamicResource LoginViewUserNameTextBoxStyle}"
+                         Text="{Binding LoginModel.Username,UpdateSourceTrigger=PropertyChanged}">
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=window1}"/>
+                    </TextBox.InputBindings>
+                </TextBox>
+
+                <PasswordBox Grid.Row="1" Height="40"
                              Style="{DynamicResource LoginViewPasswordPasswordBoxStyle1}"
-                             common:PasswordHelper.Attach="true"
-                             common:PasswordHelper.Password="{Binding LoginModel.Password}"/>
+                             common:PasswordHelper.Attach="false"
+                             common:PasswordHelper.Password="{Binding LoginModel.Password, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                    <PasswordBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=window1}"/>
+                    </PasswordBox.InputBindings>
+                </PasswordBox>
+
                 <TextBox Grid.Row="2" Height="40" 
                          Style="{DynamicResource LoginViewValidateCodeTextBoxStyle}"
-                         Text="{Binding LoginModel.ValidataionCode}"/>
-                <Button Content="Login" Grid.Row="3" Height="40" Foreground="White" FontSize="16" Template="{StaticResource LoginButtonTemplate}"/>
-                <TextBlock Text="Login Failed" Foreground="Red" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" LineHeight="22" Grid.Row="4"/>
+                         Text="{Binding LoginModel.ValidataionCode,UpdateSourceTrigger=PropertyChanged}">
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=window1}"/>
+                    </TextBox.InputBindings>
+                </TextBox>
+
+                <Button Content="Login" Grid.Row="3" Height="40" Foreground="White" FontSize="16" 
+                        Template="{StaticResource LoginButtonTemplate}"
+                        Command="{Binding LoginCommand}"
+                        CommandParameter="{Binding ElementName=window1}"/>
+                
+                <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" FontSize="13" 
+                           VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" LineHeight="22" Grid.Row="4"/>
 
 
             </Grid>

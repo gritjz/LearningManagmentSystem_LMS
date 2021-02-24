@@ -11,7 +11,10 @@ namespace ManagementSystemForCourses.Common
     public class PasswordHelper
     {
         public static readonly DependencyProperty PasswordProperty =
-            DependencyProperty.RegisterAttached("Password", typeof(string), typeof(PasswordHelper),
+            DependencyProperty.RegisterAttached(
+                "Password", 
+                typeof(string), 
+                typeof(PasswordHelper),
                 new FrameworkPropertyMetadata("", new PropertyChangedCallback(OnpropertyChanged)));
 
         public static string GetPassword(DependencyObject d)
@@ -25,14 +28,16 @@ namespace ManagementSystemForCourses.Common
 
 
         public static readonly DependencyProperty AttachProperty =
-            DependencyProperty.RegisterAttached("Attach", typeof(bool), typeof(PasswordHelper),
-                new FrameworkPropertyMetadata(default(bool), new PropertyChangedCallback(OnAttached)));
-
-        public static string GetAttach(DependencyObject d)
+           DependencyProperty.RegisterAttached(
+               "Attach", 
+               typeof(bool), 
+               typeof(PasswordHelper), 
+               new FrameworkPropertyMetadata(default(bool), new PropertyChangedCallback(OnAttached)));
+        public static bool GetAttach(DependencyObject d)
         {
-            return d.GetValue(AttachProperty).ToString();
+            return (bool)d.GetValue(AttachProperty);
         }
-        public static void SetAttach(DependencyObject d, string value)
+        public static void SetAttach(DependencyObject d, bool value)
         {
             d.SetValue(AttachProperty, value);
         }
@@ -42,10 +47,10 @@ namespace ManagementSystemForCourses.Common
         private static void OnpropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             PasswordBox password = d as PasswordBox;
-            //password.PasswordChanged -= Password_PasswordChanged;
+            password.PasswordChanged -= Password_PasswordChanged;
             if (!isUpdating)
-                password.Password = e.NewValue.ToString();
-            //password.PasswordChanged += Password_PasswordChanged;
+                password.Password = e.NewValue?.ToString();//password is not null
+            password.PasswordChanged += Password_PasswordChanged;
         }
 
         private static void OnAttached(DependencyObject d, DependencyPropertyChangedEventArgs e)

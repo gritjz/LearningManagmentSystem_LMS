@@ -13,7 +13,7 @@ namespace ManagementSystemForCourses.Model
         public string Username
         {
             get { return username; }
-            set { username = value; }
+            set { username = value; this.DoNotify(); }
         }
 
         private string password;
@@ -21,13 +21,13 @@ namespace ManagementSystemForCourses.Model
         public string Password
         {
             get {
-                //if (password ==null) 
-                //{ 
-                //    password = ""; 
-                //}
                 return password; 
             }
-            set { password = value; }
+            set 
+            { 
+                password = value;
+                this.DoNotify();
+            }
         }
 
         private string validataioncode;
@@ -35,7 +35,7 @@ namespace ManagementSystemForCourses.Model
         public string ValidataionCode
         {
             get { return validataioncode; }
-            set { validataioncode = value; }
+            set { validataioncode = value; this.DoNotify(); }
         }
 
     }
