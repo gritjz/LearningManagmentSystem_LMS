@@ -294,7 +294,7 @@
                 <Button Content="Login" Grid.Row="3" Height="40" Foreground="White" FontSize="16" 
                         Template="{StaticResource LoginButtonTemplate}"
                         Command="{Binding LoginCommand}"
-                        CommandParameter="{Binding ElementName=window1}"/>
+                        CommandParameter="{Binding ElementName=window1}" IsDefault="True"/>
                 
                 <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" FontSize="13" 
                            VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" LineHeight="22" Grid.Row="4"/>
