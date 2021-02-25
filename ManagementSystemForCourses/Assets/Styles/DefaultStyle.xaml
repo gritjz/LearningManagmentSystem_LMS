@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ManagementSystemForCourses.Assets.Styles">
+
+    
+    
+    <Style TargetType="Button" x:Key="WindowControlButtonStyle">
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="Transparent" Name="bdCloseButton" CornerRadius="0,10,0,0">
+                        <TextBlock Text="{Binding Content, RelativeSource={RelativeSource AncestorType=Button,Mode=FindAncestor}}"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="16"
+                       FontFamily="../Fonts/#iconfont"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName ="bdCloseButton" Property="Background" Value="#22FFFFFF" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName ="bdCloseButton" Property="Background" Value="#44FFFFFF" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+   
+
+</ResourceDictionary>

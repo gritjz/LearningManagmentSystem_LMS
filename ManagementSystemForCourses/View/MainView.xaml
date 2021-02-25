@@ -5,8 +5,134 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManagementSystemForCourses"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-              
-    </Grid>
+        Title="ZHANG's" Height="800" Width="1250"
+        FontFamily="Microsoft YaHei" FontWeight="ExtraLight" FontSize="12"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Assets/Styles/DefaultStyle.xaml"/>
+                <ResourceDictionary>
+                    <Style TargetType="RadioButton" x:Key="NavButtonStyle" >
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="RadioButton">
+                                    <Border Background="Transparent" CornerRadius="8" Name="back2">
+                                        <ContentControl Content="{TemplateBinding Content}" 
+                                                        VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                        Margin="20,4" FontSize="14"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter TargetName="back2" Property="Background" Value="#44FFFFFF"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                    
+                    <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+                    <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+                    <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+                    <ControlTemplate TargetType="{x:Type TextBox}" x:Key="SearchTextBoxTemplate">
+                        <Border x:Name="border"
+                        BorderThickness="0" Background="#22000000" SnapsToDevicePixels="True"
+                        CornerRadius="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="&#xe603;" FontFamily="../Assets/Fonts/#iconfont"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"
+                               Foreground="#44FFFFFF" FontSize="16"/>
+                                <!--water mark-->
+                                <TextBlock Text="Search for what you like..."  Grid.Column="1" VerticalAlignment="Center" 
+                                   Foreground="#44FFFFFF" Name="mt" Visibility="Collapsed"/>
+                                <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="false" 
+                                  HorizontalScrollBarVisibility="Hidden" 
+                                  VerticalScrollBarVisibility="Hidden"
+                                  VerticalAlignment="Center" Background="Transparent"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                            </Trigger>
+                            <!--hide the water mark when no data in search box-->
+                            <DataTrigger Binding="{Binding Text,RelativeSource={RelativeSource Mode=Self}}" Value="">
+                                <Setter TargetName="mt" Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Border Background="White" CornerRadius="10" Margin="0,0,0,20">
+        <Border.Effect>
+            <DropShadowEffect Color="Gray" ShadowDepth="0" BlurRadius="5" Opacity="0.3" />
+        </Border.Effect>
+
+        <Grid>
+            <Border Background="#007DFA" Height="200" VerticalAlignment="Top" CornerRadius="10"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Button Style="{StaticResource WindowControlButtonStyle}"
+                        Content="&#xeffb;" />
+                <Button Style="{StaticResource WindowControlButtonStyle}"
+                         Content="&#xe60c;"/>
+                <Button Style="{StaticResource WindowControlButtonStyle}"
+                        Content="&#xe602;" />
+            </StackPanel>
+            <Grid Margin="50,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="65"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Image Source="../Assets/Images/logo.png" Width="60" Height="60"  />
+                    <StackPanel VerticalAlignment="Center"  Margin="15,0,0,0">
+                        <TextBlock Text="COURSES MANAGEMENT SYSTEM " Foreground="Wheat"
+                                   FontSize="20" FontWeight="Heavy"
+                                   />
+                        <TextBlock Text="ZHANG'S Product"  Foreground="#88DDDDDD" FontSize="10" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Border Width="50" Height="50" CornerRadius="15" >
+                        <Border.Background>
+                            <ImageBrush ImageSource="../Assets/Images/z2.png"/>
+                        </Border.Background>
+                    </Border>
+                    <TextBlock Text="Administrator" VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <RadioButton Content="Home" Style="{StaticResource NavButtonStyle}" IsChecked="True"/>
+                    <RadioButton Content="Course Center"  Style="{StaticResource NavButtonStyle}"/>
+                    <RadioButton Content="My Courses" Style="{StaticResource NavButtonStyle}"/>
+                    <RadioButton Content="Job Opportunities" Style="{StaticResource NavButtonStyle}" />
+                    <RadioButton Content="About ZHANG's" Style="{StaticResource NavButtonStyle}"/>
+                </StackPanel>
+
+                <TextBox Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" 
+                         Width="300" Height="32"  Text="123123"
+                         Template="{StaticResource SearchTextBoxTemplate}" 
+                         Foreground="White"/>
+            </Grid>
+        </Grid>
+    </Border>
 </Window>
