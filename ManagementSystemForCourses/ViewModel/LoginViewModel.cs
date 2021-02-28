@@ -93,14 +93,14 @@ namespace ManagementSystemForCourses.ViewModel
             {
                 try
                 {
-                    var user = LocalDataAccess.GetInstance().CheckUserInfo(LoginModel.Username, LoginModel.Password);
-                    if (user == null)
-                    {
-                        throw new Exception("Login Failed! User Name or Password is incorrect!");
-                    }
+                   // var user = LocalDataAccess.GetInstance().CheckUserInfo(LoginModel.Username, LoginModel.Password);
+                   // if (user == null)
+                    //{
+                   //     throw new Exception("Login Failed! User Name or Password is incorrect!");
+                    //}
 
                     ////Store DB info into a global variable
-                    GlobalValues.UserInfo = user;
+                    //GlobalValues.UserInfo = user;
 
                     ////click login button, then commandparameter will execute and jump to main window
                     ////then, program will execute App.xaml.cs

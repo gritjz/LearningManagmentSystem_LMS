@@ -23,6 +23,31 @@ namespace ManagementSystemForCourses.View
         public MainView()
         {
             InitializeComponent();
+            this.MaxHeight = SystemParameters.PrimaryScreenHeight;
+        }
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void btnMin_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void btnMax_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = this.WindowState == 
+                WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

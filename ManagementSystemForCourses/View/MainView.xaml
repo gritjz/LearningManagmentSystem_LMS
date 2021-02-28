@@ -87,14 +87,15 @@
         </Border.Effect>
 
         <Grid>
-            <Border Background="#007DFA" Height="200" VerticalAlignment="Top" CornerRadius="10"/>
+            <Border Background="#007DFA" Height="200" VerticalAlignment="Top" CornerRadius="10"
+                    MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button Style="{StaticResource WindowControlButtonStyle}"
-                        Content="&#xeffb;" />
+                        Content="&#xeffb;" Click="btnMin_Click"/>
                 <Button Style="{StaticResource WindowControlButtonStyle}"
-                         Content="&#xe60c;"/>
+                         Content="&#xe60c;" Click="btnMax_Click"/>
                 <Button Style="{StaticResource WindowControlButtonStyle}"
-                        Content="&#xe602;" />
+                        Content="&#xe602;" Click="btnClose_Click"/>
             </StackPanel>
             <Grid Margin="50,20">
                 <Grid.RowDefinitions>
@@ -132,6 +133,10 @@
                          Width="300" Height="32"  Text="123123"
                          Template="{StaticResource SearchTextBoxTemplate}" 
                          Foreground="White"/>
+
+                <ContentControl Grid.Row="2" Content="{Binding}"/>
+
+
             </Grid>
         </Grid>
     </Border>
