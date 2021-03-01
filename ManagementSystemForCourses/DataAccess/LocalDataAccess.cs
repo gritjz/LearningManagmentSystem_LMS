@@ -61,35 +61,38 @@ namespace ManagementSystemForCourses.DataAccess
             }
             catch
             {
+                //throw new Exception("Failed Connection");
                 return false;
             }
+            
         }
 
         //Data Acquire
         //data validation
         public UserEntity CheckUserInfo(string userName, string pwd)
         {
-            try { 
-            if(DBConnection())
+            try
             {
-                string userSql = 
-                    "select * from users where user_name@user_name and password@pwd and is_validation=1";
-                adapter = new SqlDataAdapter(userSql, conn);
-                adapter.SelectCommand.Parameters.Add(
-                    new SqlParameter("@user_name", 
-                    SqlDbType.VarChar){ Value = userName });
-                adapter.SelectCommand.Parameters.Add(
-                   new SqlParameter("@pwd",
-                   SqlDbType.VarChar)
-                   { Value = MD5Generator.GetMD5String(pwd+"@"+ userName)});
+                if (DBConnection())
+                {
+                    string userSql = "select * from users where user_name=@user_name and password=@pwd and is_validation=1";
+                    adapter = new SqlDataAdapter(userSql, conn);
+                    adapter.SelectCommand.Parameters.Add(
+                        new SqlParameter("@user_name",
+                        SqlDbType.VarChar)
+                        { Value = userName });
+                    adapter.SelectCommand.Parameters.Add(
+                       new SqlParameter("@pwd",
+                       SqlDbType.VarChar)
+                       { Value = MD5Generator.GetMD5String(pwd + "@" + userName) });
 
-                DataTable table = new DataTable();
-                int counter = adapter.Fill(table);
+                    DataTable table = new DataTable();
+                    int counter = adapter.Fill(table);
 
                     if (counter <= 0)
                         throw new Exception("User name or password is wrong!");
                     DataRow dr = table.Rows[0];
-                    if(dr.Field<Int32>("is_can_login") == 0)
+                    if (dr.Field<Int32>("is_can_login") == 0)
                     {
                         throw new Exception("Unauthorized User!");
                     }
@@ -101,9 +104,9 @@ namespace ManagementSystemForCourses.DataAccess
                     userInfo.Avatar = dr.Field<string>("avatar");
                     userInfo.Gender = dr.Field<Int32>("gender");
                     return userInfo;
+                }
             }
-            }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }

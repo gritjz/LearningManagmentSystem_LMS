@@ -98,6 +98,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\CoursePageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FirstPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -114,11 +122,18 @@
     <Compile Include="Common\GlobalValues.cs" />
     <Compile Include="Common\MD5Generator.cs" />
     <Compile Include="Common\PasswordHelper.cs" />
+    <Compile Include="Converter\GenderConverter.cs" />
     <Compile Include="DataAccess\DataEntity\UserEntity.cs" />
     <Compile Include="DataAccess\LocalDataAccess.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Common\NotifyBase.cs" />
     <Compile Include="Model\UserModel.cs" />
+    <Compile Include="View\CoursePageView.xaml.cs">
+      <DependentUpon>CoursePageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FirstPageView.xaml.cs">
+      <DependentUpon>FirstPageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\LoginView.xaml.cs">

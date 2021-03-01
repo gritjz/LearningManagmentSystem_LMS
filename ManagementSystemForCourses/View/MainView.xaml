@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManagementSystemForCourses"
+        xmlns:converter="clr-namespace:ManagementSystemForCourses.Converter"
         mc:Ignorable="d"
         Title="ZHANG's" Height="800" Width="1250"
         FontFamily="Microsoft YaHei" FontWeight="ExtraLight" FontSize="12"
@@ -13,7 +14,11 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../Assets/Styles/DefaultStyle.xaml"/>
+                
+                
                 <ResourceDictionary>
+                    <converter:GenderConverter x:Key="genderConverter" />
+
                     <Style TargetType="RadioButton" x:Key="NavButtonStyle" >
                         <Setter Property="Foreground" Value="White"/>
                         <Setter Property="Template">
@@ -33,7 +38,7 @@
                             </Setter.Value>
                         </Setter>
                     </Style>
-                    
+
                     <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
                     <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
                     <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
@@ -76,10 +81,46 @@
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
 
+                    <Storyboard x:Key="UserInfoStoryBoard">
+                        <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetName="tt" Storyboard.TargetProperty="X"/>
+                    </Storyboard>
+                    <Storyboard x:Key="CloseUserInfoStoryBoard">
+                        <DoubleAnimation Duration="0:0:0.1" Storyboard.TargetName="tt" Storyboard.TargetProperty="X"/>
+                    </Storyboard>
+
+                    <ControlTemplate TargetType="RadioButton" x:Key="GenderRadioButtonTemplate">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Width="14" Height="14" BorderThickness="1" BorderBrush="#007DFA" Background="White" Margin="5,0">
+                                <Border Width="8" Height="8" CornerRadius="4" Background="#007DFA" Name="point" Visibility="Collapsed"/>
+                            </Border>
+                            <ContentControl Content="{TemplateBinding Content}" VerticalAlignment="Center" Grid.Column="1"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Visibility" Value="Visible" TargetName="point"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                    
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+
+    <Window.Triggers>
+
+        <EventTrigger RoutedEvent="Button.Click" SourceName="btnUserInfo">
+            <BeginStoryboard Storyboard="{StaticResource UserInfoStoryBoard}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Button.Click" SourceName="btnCloseUserInfo">
+            <BeginStoryboard Storyboard="{StaticResource CloseUserInfoStoryBoard}"/>
+        </EventTrigger>
+
+    </Window.Triggers>
 
     <Border Background="White" CornerRadius="10" Margin="0,0,0,20">
         <Border.Effect>
@@ -97,6 +138,7 @@
                 <Button Style="{StaticResource WindowControlButtonStyle}"
                         Content="&#xe602;" Click="btnClose_Click"/>
             </StackPanel>
+
             <Grid Margin="50,20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="65"/>
@@ -115,29 +157,99 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <Border Width="50" Height="50" CornerRadius="15" >
                         <Border.Background>
-                            <ImageBrush ImageSource="../Assets/Images/z2.png"/>
+                            <ImageBrush ImageSource="{Binding UserInfo.Avatar}"/>
                         </Border.Background>
                     </Border>
-                    <TextBlock Text="Administrator" VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0"/>
+                    <Button VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0"
+                            Cursor="Hand" Name="btnUserInfo">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <TextBlock Text="{Binding UserInfo.UserName}"/>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <RadioButton Content="Home" Style="{StaticResource NavButtonStyle}" IsChecked="True"/>
+                    <RadioButton Content="Home" Style="{StaticResource NavButtonStyle}" IsChecked="True"
+                                 Command="{Binding NavChangedCommand}"
+                                 CommandParameter="FirstPageView"/>
                     <RadioButton Content="Course Center"  Style="{StaticResource NavButtonStyle}"/>
-                    <RadioButton Content="My Courses" Style="{StaticResource NavButtonStyle}"/>
+                    <RadioButton Content="My Courses" Style="{StaticResource NavButtonStyle}"
+                                 Command="{Binding NavChangedCommand}"
+                                 CommandParameter="CoursePageView"/>
                     <RadioButton Content="Job Opportunities" Style="{StaticResource NavButtonStyle}" />
                     <RadioButton Content="About ZHANG's" Style="{StaticResource NavButtonStyle}"/>
                 </StackPanel>
 
                 <TextBox Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" 
-                         Width="300" Height="32"  Text="123123"
+                         Width="300" Height="32"  Text="{Binding SearchText}"
                          Template="{StaticResource SearchTextBoxTemplate}" 
                          Foreground="White"/>
 
-                <ContentControl Grid.Row="2" Content="{Binding}"/>
+                <ContentControl Grid.Row="2" Content="{Binding MainContent}"/>
 
 
             </Grid>
+
+            <!--Info slide bar-->
+            <Border Background="#EE444444" Width="240" HorizontalAlignment="Right" CornerRadius="0,5,5,0">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" ShadowDepth="0" BlurRadius="5" Opacity="0.3" />
+                </Border.Effect>
+                <Border.RenderTransform>
+                    <TranslateTransform X="250" x:Name="tt"/>
+                </Border.RenderTransform>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="230"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Width="40" Height="40" BorderThickness="0" Content="&#xe602;" FontFamily="../Assets/Fonts/#iconfont"
+                    VerticalAlignment="Top" HorizontalAlignment="Left" Name="btnCloseUserInfo"/>
+                    <Border Width="80" Height="80" CornerRadius="40">
+                        <Border.Effect>
+                            <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="5" Opacity="1" Direction="0" />
+                        </Border.Effect>
+                        <Border.Background>
+                            <ImageBrush ImageSource="{Binding UserInfo.Avatar}"/>
+                        </Border.Background>
+                    </Border>
+
+                    <Grid Grid.Row="1" Margin="20,0">
+                        <Grid.Resources>
+                            <Style TargetType="RadioButton">
+                                <Setter Property="Foreground" Value="White"/>
+                            </Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontSize" Value="14"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal"  VerticalAlignment="Center">
+                            <TextBlock Text="username"/>
+                            <TextBlock Text="{Binding UserInfo.UserName}" Margin="10,0,0,0" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="1"  VerticalAlignment="Center">
+                            <TextBlock Text="Gender"/>
+                            <RadioButton Content="M" Margin="10,0,0,0" Template="{StaticResource GenderRadioButtonTemplate}" 
+                                         IsChecked="{Binding UserInfo.Gender, Converter={StaticResource genderConverter}, ConverterParameter=1}"/>
+                            <RadioButton Content="F" Margin="10,0,0,0" Template="{StaticResource GenderRadioButtonTemplate}"
+                                         IsChecked="{Binding UserInfo.Gender, Converter={StaticResource genderConverter}, ConverterParameter=2}"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+             
+            </Border>
         </Grid>
     </Border>
 </Window>

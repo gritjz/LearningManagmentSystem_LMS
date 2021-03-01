@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ManagementSystemForCourses.Common;
+using ManagementSystemForCourses.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,14 @@ namespace ManagementSystemForCourses.View
         public MainView()
         {
             InitializeComponent();
+            MainViewModel model = new MainViewModel();
+            this.DataContext = model;
+
+
+            model.UserInfo.Avatar = GlobalValues.UserInfo.Avatar;
+            model.UserInfo.UserName = GlobalValues.UserInfo.RealName;
+            model.UserInfo.Gender = GlobalValues.UserInfo.Gender;
+
             this.MaxHeight = SystemParameters.PrimaryScreenHeight;
         }
 

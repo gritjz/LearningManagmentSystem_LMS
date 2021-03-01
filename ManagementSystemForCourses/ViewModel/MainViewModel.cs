@@ -3,19 +3,20 @@ using ManagementSystemForCourses.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace ManagementSystemForCourses.ViewModel
+namespace ManagementSystemForCourses.View
 {
     public class MainViewModel : NotifyBase
     {
         public UserModel UserInfo { get; set; }
 
-        private int _searchText;
+        private string _searchText;
 
-        public int SearchText
+        public string SearchText
         {
             get { return _searchText; }
             set { _searchText = value; this.DoNotify(); }
@@ -33,14 +34,20 @@ namespace ManagementSystemForCourses.ViewModel
 
         public MainViewModel() 
         {
+            UserInfo = new UserModel();
             this.NavChangedCommand = new CommandBase();
             this.NavChangedCommand.DoExecute = new Action<object>(DoNavChanged);
             this.NavChangedCommand.DoCanExecute = new Func<object, bool>((o) => true);
+
+            DoNavChanged("FirstPageView");
         }
 
         private void DoNavChanged(object obj)
         {
-
+            //Using reflection to get first page
+            Type type = Type.GetType("ManagementSystemForCourses.View." + obj.ToString());
+            ConstructorInfo cti = type.GetConstructor(System.Type.EmptyTypes);
+            this.MainContent = (FrameworkElement)cti.Invoke(null);
         }
 
 
