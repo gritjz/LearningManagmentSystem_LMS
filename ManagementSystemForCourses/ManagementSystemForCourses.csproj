@@ -187,5 +187,11 @@
   <ItemGroup>
     <Resource Include="Assets\Images\z2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ManagementSystemForCourses.Controls\ManagementSystemForCourses.Controls.csproj">
+      <Project>{3c66e0c4-b6ca-4cfb-b496-5e02aa70503d}</Project>
+      <Name>ManagementSystemForCourses.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

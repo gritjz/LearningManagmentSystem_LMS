@@ -5,14 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ManagementSystemForCourses.ViewModel"
              xmlns:lc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" >
+             xmlns:msc="clr-namespace:ManagementSystemForCourses.Controls;assembly=ManagementSystemForCourses.Controls"
+             mc:Ignorable="d" d:DesignWidth="1000" Height="800" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="160"/>
             <RowDefinition Height="360"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+
         <UniformGrid Columns="4">
             <Border CornerRadius="5" Background="White" Margin="10">
                 <Border.Effect>
@@ -33,7 +34,8 @@
                         </lc:CartesianChart.AxisY>
                     </lc:CartesianChart>
 
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                Margin="10,10,0,0">
                         <Border Width="20" Height="20" Background="#EDFAF0">
                             <TextBlock Text="&#xe61a;" FontFamily="../Assets/Fonts/#iconfont" 
                                        Foreground="#7ADA95"
@@ -43,7 +45,8 @@
                                        Foreground="#7ADA95"
                                        VerticalAlignment="Center" Margin="5,0,0,0"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" >
                         <Border Width="36" Height="36" Background="#FFF5E9" CornerRadius="10" Margin="15,3">
                             <TextBlock Text="&#xe702;" FontFamily="../Assets/Fonts/#iconfont" 
                                        FontSize="20" Foreground="#FFBC57"
@@ -56,13 +59,12 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            
+
             <Border CornerRadius="5" Background="White"  Margin="10">
                 <Border.Effect>
                     <DropShadowEffect Color="#F2F2F2" ShadowDepth="10" BlurRadius="105" Opacity="0.4" Direction="270" />
                 </Border.Effect>
                 <Grid>
-
                     <lc:CartesianChart Margin="0,0,0,45">
                         <lc:CartesianChart.Series>
                             <lc:LineSeries Stroke="#FF7261" Fill="#FFE3E0"
@@ -76,7 +78,7 @@
                         </lc:CartesianChart.AxisY>
                     </lc:CartesianChart>
 
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0">
                         <Border Width="20" Height="20" Background="#EDFAF0">
                             <TextBlock Text="&#xe61a;" FontFamily="../Assets/Fonts/#iconfont" 
                                        Foreground="#7ADA95"
@@ -99,7 +101,7 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            
+
             <Border CornerRadius="5" Background="White"  Margin="10">
                 <Border.Effect>
                     <DropShadowEffect Color="#F2F2F2" ShadowDepth="10" BlurRadius="105" Opacity="0.4" Direction="270" />
@@ -119,7 +121,7 @@
                         </lc:CartesianChart.AxisY>
                     </lc:CartesianChart>
 
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0">
                         <Border Width="20" Height="20" Background="#EDFAF0">
                             <TextBlock Text="&#xe61a;" FontFamily="../Assets/Fonts/#iconfont" 
                                        Foreground="#7ADA95"
@@ -142,7 +144,7 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            
+
             <Border CornerRadius="5" Background="White"  Margin="10">
                 <Border.Effect>
                     <DropShadowEffect Color="#F2F2F2" ShadowDepth="10" BlurRadius="105" Opacity="0.4" Direction="270" />
@@ -162,7 +164,7 @@
                         </lc:CartesianChart.AxisY>
                     </lc:CartesianChart>
 
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0">
                         <Border Width="20" Height="20" Background="#EDFAF0">
                             <TextBlock Text="&#xe61a;" FontFamily="../Assets/Fonts/#iconfont" 
                                        Foreground="#7ADA95"
@@ -185,9 +187,157 @@
                     </StackPanel>
                 </Grid>
             </Border>
-                
+
         </UniformGrid>
-        
-        
+
+        <Grid Grid.Row="1" Margin="10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <!--Student Checkin Status-->
+            <Grid Margin="0,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Student Check-in" Foreground="#3F4C5D" FontSize="15"  FontWeight="Bold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Hyperlink>status</Hyperlink>
+                </TextBlock>
+
+                <Border CornerRadius="5" Background="White" Grid.Row="1">
+                    <Border.Effect>
+                        <DropShadowEffect Color="#F2F2F2" ShadowDepth="10" BlurRadius="105" Opacity="0.4" Direction="270" />
+                    </Border.Effect>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+                            <TextBlock Text="Current Usage" FontSize="14" Foreground="#3F4C5D"  />
+                            <TextBlock Text="+120%" FontSize="18" FontWeight="Bold" Foreground="#3F4C5D" 
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <Border Width="20" Height="20" Background="#EDFAF0">
+                                    <TextBlock Text="&#xe61a;" FontFamily="../Assets/Fonts/#iconfont" 
+                                       Foreground="#7ADA95"
+                                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                                <TextBlock Text="%32" FontFamily="../Assets/Fonts/#iconfont" 
+                                       Foreground="#7ADA95"
+                                       VerticalAlignment="Center" Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <TextBlock Text="Max Usage" HorizontalAlignment="Center" Foreground="#3F4C5D" FontSize="12"/>
+                        </StackPanel>
+
+                        <lc:CartesianChart Margin="5" Grid.Column="1">
+                            <lc:CartesianChart.Series>
+                                <lc:LineSeries Stroke="#3BC8D7" Fill="#E1F2F6"
+                                           PointGeometrySize="0" Values="1,2,3,40,5,6,7"/>
+                            </lc:CartesianChart.Series>
+                            <lc:CartesianChart.AxisX>
+                                <lc:Axis ShowLabels="False"/>
+                            </lc:CartesianChart.AxisX>
+                            <lc:CartesianChart.AxisY>
+                                <lc:Axis ShowLabels="True" MinValue="0" MaxValue="100"/>
+                            </lc:CartesianChart.AxisY>
+                        </lc:CartesianChart>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="0,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="ZHANG's EDUCATION" FontWeight="Bold" Foreground="#3F4C5D" FontSize="15"
+                           VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <Border Grid.Row="1" Background="#007DFA" CornerRadius="10" >
+                    <Border.Effect>
+                        <DropShadowEffect Color="#F2F2F2" ShadowDepth="10" BlurRadius="105" Opacity="0.4" Direction="270" />
+                    </Border.Effect>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel VerticalAlignment="Center" >
+                            <TextBlock Text="Hi!" Foreground="White" Margin="15,0,0,10"/>
+                            <TextBlock Text="ZHANG's Education is an American massive open online course provider founded in 2012 by computer science expert Steven Zhang."
+                                       Foreground="#D3E9F1" LineHeight="20" Margin="15,0,0,0" TextWrapping="Wrap"/>
+                        </StackPanel>
+                        <Image Source="../Assets/Images/logo.png"  Grid.Column="1" Width="60" Height="60"   />
+                    </Grid>
+                    
+                </Border>
+                
+            </Grid>
+
+
+            <Grid Grid.Column="1" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Data Monitor" FontWeight="Bold" Foreground="#3F4C5D" FontSize="15"
+                           VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <Border Grid.Row="1" Margin="10,0,0,0" CornerRadius="10">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="White" Offset="0"/>
+                            <GradientStop Color="#EDFAF0" Offset="0.5"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0">
+                            <Border Width="20" Height="20" Background="#FFF1F1">
+                                <TextBlock Text="&#xe61a;" FontFamily="../Assets/Fonts/#iconfont" 
+                                       Foreground="Red"
+                                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                            <TextBlock Text="%32" FontFamily="../Assets/Fonts/#iconfont" 
+                                       Foreground="Red"
+                                       VerticalAlignment="Center" Margin="5,0,0,0"/>
+                        </StackPanel>
+                        
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="30,0,0,20">
+                            <TextBlock Text="Current Usage" FontSize="14" Foreground="#3F4C5D"  />
+                            <TextBlock Text="+120%" FontSize="18" FontWeight="Bold" Foreground="#3F4C5D" 
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                        </StackPanel>
+
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,30,20">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <Border Width="20" Height="20" Background="#EDFAF0">
+                                    <TextBlock Text="&#xe61a;" FontFamily="../Assets/Fonts/#iconfont" 
+                                       Foreground="#7ADA95"
+                                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                                <TextBlock Text="%32" FontFamily="../Assets/Fonts/#iconfont" 
+                                       Foreground="#7ADA95"
+                                       VerticalAlignment="Center" Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <TextBlock Text="Max Usage" HorizontalAlignment="Center" Foreground="#3F4C5D" FontSize="12"/>
+                        </StackPanel>
+
+                        <msc:InstrumentPanel Margin="0,20,0,40"/>
+
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+
     </Grid>
 </UserControl>
