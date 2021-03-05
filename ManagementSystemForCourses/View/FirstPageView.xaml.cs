@@ -23,6 +23,8 @@ namespace ManagementSystemForCourses.View
         public FirstPageView()
         {
             InitializeComponent();
+
+            //this.DataContext = new FirstPageViewModel();
         }
     }
 }

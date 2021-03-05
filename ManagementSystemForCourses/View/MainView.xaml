@@ -56,7 +56,7 @@
                                VerticalAlignment="Center" HorizontalAlignment="Center"
                                Foreground="#44FFFFFF" FontSize="16"/>
                                 <!--water mark-->
-                                <TextBlock Text="Search for what you like..."  Grid.Column="1" VerticalAlignment="Center" 
+                                <TextBlock Text=" Search for what you like..."  Grid.Column="1" VerticalAlignment="Center" 
                                    Foreground="#44FFFFFF" Name="mt" Visibility="Collapsed"/>
                                 <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="false" 
                                   HorizontalScrollBarVisibility="Hidden" 
