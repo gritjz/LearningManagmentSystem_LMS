@@ -332,7 +332,7 @@
                             <TextBlock Text="Max Usage" HorizontalAlignment="Center" Foreground="#3F4C5D" FontSize="12"/>
                         </StackPanel>
 
-                        <msc:InstrumentPanel Margin="0,20,0,40"/>
+                        <msc:InstrumentPanel Margin="0,20,0,40" Value="142"/>
 
                     </Grid>
                 </Border>
