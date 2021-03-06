@@ -96,7 +96,7 @@ namespace ManagementSystemForCourses.Controls
                 this.mainCanvas.Children.Add(lineScale);
 
 
-                //
+                //hahahsdwqe
                 TextBlock textScale = new TextBlock();
                 textScale.Width = 34;
                 textScale.TextAlignment = TextAlignment.Center;
