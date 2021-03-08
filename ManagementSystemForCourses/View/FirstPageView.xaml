@@ -332,7 +332,15 @@
                             <TextBlock Text="Max Usage" HorizontalAlignment="Center" Foreground="#3F4C5D" FontSize="12"/>
                         </StackPanel>
 
-                        <msc:InstrumentPanel Margin="0,20,0,40" Value="142"/>
+                        <msc:InstrumentPanel Margin="0,20,0,40" 
+                                             PlateBackground="CadetBlue"
+                                             Value="{Binding InstrumentValue}"
+                                             Maximum="100"
+                                             Minimum="-10"
+                                             Interval="11"
+                                             ScaleTextSize="13"
+                                             ScaleColor="Wheat"
+                                            />
 
                     </Grid>
                 </Border>

@@ -134,6 +134,7 @@
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Common\NotifyBase.cs" />
     <Compile Include="Model\UserModel.cs" />
+    <Compile Include="ViewModel\FirstPageViewModel.cs" />
     <Compile Include="View\CoursePageView.xaml.cs">
       <DependentUpon>CoursePageView.xaml</DependentUpon>
     </Compile>

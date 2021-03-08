@@ -7,11 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Ellipse Fill="DarkOrange" x:Name="backEllipse"/>
+
+        <Ellipse Fill="{Binding PlateBackground, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
+                 x:Name="backEllipse"/>
+
+
+
         <Canvas Name="mainCanvas" 
                 Width="{Binding Width, ElementName=backEllipse}" 
                 Height="{Binding Height,ElementName=backEllipse}"/>
-        
+
         <Path Data="" Stroke="White" StrokeThickness="4" Name="circle" 
               VerticalAlignment="Center" HorizontalAlignment="Center" 
               StrokeStartLineCap="Round" StrokeEndLineCap="Round"
@@ -22,15 +27,27 @@
                 <RotateTransform Angle="-45"/>
             </Path.RenderTransform>
         </Path>
-        
+
+
+
         <Path Data="" Fill="Green" Name="pointer" 
               VerticalAlignment="Center" HorizontalAlignment="Center" 
               RenderTransformOrigin="0.5,0.5" 
               Width="{Binding Width, ElementName=backEllipse}" 
               Height="{Binding Height,ElementName=backEllipse}">
             <Path.RenderTransform>
-                <RotateTransform Angle="-45"/>
+                <RotateTransform  x:Name="rtPointer"/>
             </Path.RenderTransform>
         </Path>
+
+        
+        <Border Width="20" Height="20" CornerRadius="10">
+            <Border.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="White" Offset="0.583"/>
+                    <GradientStop Color="#FF97B5BD" Offset="1"/>
+                </RadialGradientBrush>
+            </Border.Background>
+        </Border>
     </Grid>
 </UserControl>
