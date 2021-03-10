@@ -24,5 +24,10 @@ namespace ManagementSystemForCourses.Common
 
         public Action<object> DoExecute { get; set; }
         public Func<object,bool> DoCanExecute { get; set; }
+
+        public void RaiseCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, new EventArgs());
+        }
     }
 }

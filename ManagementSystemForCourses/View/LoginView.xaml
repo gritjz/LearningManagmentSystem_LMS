@@ -352,6 +352,10 @@
                 </UniformGrid>
 
             </Grid>
+            <Border Background="Transparent" Grid.Row="1" Grid.RowSpan="2"  Visibility="{Binding ShowProgress}">
+                <ProgressBar VerticalAlignment="Top" Height="3" IsIndeterminate="True" Foreground="Orange"
+                             Background="Transparent" BorderThickness="0"/>
+            </Border>
         </Grid>
     </Border>
 

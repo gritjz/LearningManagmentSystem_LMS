@@ -24,16 +24,16 @@ namespace ManagementSystemForCourses.ViewModel
             set { errorMessage = value; this.DoNotify(); }
         }
 
-        private Visibility vis;
+        private Visibility showProgress = Visibility.Collapsed;
 
-        public Visibility Vis
+        public Visibility ShowProgress
         {
-            get { return vis; }
+            get { return showProgress; }
             set 
-            { 
-                vis = value; 
+            {
+                showProgress = value; 
                 this.DoNotify();
-                
+                LoginCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -51,32 +51,32 @@ namespace ManagementSystemForCourses.ViewModel
 
             this.LoginCommand = new CommandBase();
             this.LoginCommand.DoExecute = new Action<object>(DoLogin);
-            this.LoginCommand.DoCanExecute = new Func<object, bool>((o) => { return true; });
+            this.LoginCommand.DoCanExecute = new Func<object, bool>((o) => { return ShowProgress == Visibility.Collapsed; });
 
         }
         //login logic Validation
         private void DoLogin(object o) 
         {
-            this.Vis = Visibility.Visible;
+            this.ShowProgress = Visibility.Visible;
             this.ErrorMessage = "";
             if (string.IsNullOrEmpty(LoginModel.Username))
             {
                 this.ErrorMessage = "Please Enter User Name!";
-                this.Vis = Visibility.Collapsed;
+                this.ShowProgress = Visibility.Collapsed;
                 return;
             }
 
             if(string.IsNullOrEmpty(LoginModel.Password))
             {
                 this.ErrorMessage = "Please Enter Password!";
-                this.Vis = Visibility.Collapsed;
+                this.ShowProgress = Visibility.Collapsed;
                 return;
             }
 
             if (string.IsNullOrEmpty(LoginModel.ValidataionCode))
             {
                 this.ErrorMessage = "Please Enter Validation Code!";
-                this.Vis = Visibility.Collapsed;
+                this.ShowProgress = Visibility.Collapsed;
                 return;
 
             }
@@ -84,7 +84,7 @@ namespace ManagementSystemForCourses.ViewModel
             if (LoginModel.ValidataionCode.ToLower() != "etu4")
             {
                 this.ErrorMessage = "Incorrect Validation Code!";
-                this.Vis = Visibility.Collapsed;
+                this.ShowProgress = Visibility.Collapsed;
                 return;
             }
 
