@@ -252,6 +252,7 @@ order by a.course_id";
                             string tempId = dr.Field<string>("course_id");
                             if (courseId != tempId)
                             {
+                                courseId = tempId;
                                 model = new CourseModel();
                                 model.CourseName = dr.Field<string>("course_name");
                                 model.CourseCover = dr.Field<string>("course_cover");

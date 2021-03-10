@@ -125,6 +125,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common\CommandBase.cs" />
+    <Compile Include="Common\CourseDataTemplateSelector.cs" />
     <Compile Include="Common\GlobalValues.cs" />
     <Compile Include="Common\MD5Generator.cs" />
     <Compile Include="Common\PasswordHelper.cs" />

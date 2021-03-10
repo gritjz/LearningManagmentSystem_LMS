@@ -1,6 +1,8 @@
-﻿using ManagementSystemForCourses.ViewModel;
+﻿using ManagementSystemForCourses.Model;
+using ManagementSystemForCourses.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +27,29 @@ namespace ManagementSystemForCourses.View
         {
             InitializeComponent();
             this.DataContext = new CoursePageViewModel();
+        }
+
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            RadioButton button = sender as RadioButton;
+            string instructor = button.Content.ToString();
+
+            //Use ICollectionView to setup filtering. sorting ....
+            ICollectionView view = CollectionViewSource.GetDefaultView(this.icCourses.ItemsSource);
+
+            if (instructor != "All")
+            {
+                view.Filter = new Predicate<object>((o) => 
+                {
+                    return (o as CourseModel).CourseInstructors.Exists(i => i == instructor);
+                });
+            }
+            else
+            {
+                view.Filter = null;
+                //Sorting function
+               // view.SortDescriptions.Add(new SortDescription("CourseName", ListSortDirection.Descending));
+            }
         }
     }
 }

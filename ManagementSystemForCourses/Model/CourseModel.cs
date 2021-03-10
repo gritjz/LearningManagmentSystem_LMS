@@ -17,5 +17,7 @@ namespace ManagementSystemForCourses.Model
         public string CourseDescription { get; set; }
 
         public List<string> CourseInstructors { get; set; }
+
+        public bool IsShowSkeleton { get; set; }
     }
 }

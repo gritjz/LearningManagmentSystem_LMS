@@ -103,7 +103,7 @@
                                        VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </Border>
                             <StackPanel Margin="15,0,0,0">
-                                <TextBlock Text="Monitor 1" Foreground="#3F4C5D" FontSize="12" />
+                                <TextBlock Text="Monitor 2" Foreground="#3F4C5D" FontSize="12" />
                                 <TextBlock Text="32%" FontWeight="Bold" Foreground="#3F4C5D" FontSize="16" />
                             </StackPanel>
                         </StackPanel>
@@ -146,7 +146,7 @@
                                        VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </Border>
                             <StackPanel Margin="15,0,0,0">
-                                <TextBlock Text="Monitor 1" Foreground="#3F4C5D" FontSize="12" />
+                                <TextBlock Text="Monitor 3" Foreground="#3F4C5D" FontSize="12" />
                                 <TextBlock Text="32%" FontWeight="Bold" Foreground="#3F4C5D" FontSize="16" />
                             </StackPanel>
                         </StackPanel>
@@ -189,7 +189,7 @@
                                        VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </Border>
                             <StackPanel Margin="15,0,0,0">
-                                <TextBlock Text="Monitor 1" Foreground="#3F4C5D" FontSize="12" />
+                                <TextBlock Text="Monitor 4" Foreground="#3F4C5D" FontSize="12" />
                                 <TextBlock Text="32%" FontWeight="Bold" Foreground="#3F4C5D" FontSize="16" />
                             </StackPanel>
                         </StackPanel>
@@ -282,8 +282,8 @@
                                 <ColumnDefinition Width="100"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel VerticalAlignment="Center" >
-                                <TextBlock Text="Hi!" Foreground="White" Margin="15,0,0,10"/>
-                                <TextBlock Text="ZHANG's Education is an American massive open online course provider founded in 2012 by computer science expert Steven Zhang."
+                                <TextBlock Text="Hi Geeks!" Foreground="White" Margin="15,0,0,10"/>
+                                <TextBlock Text="ZHANG's Education is an american massive online course provider founded in 2012 by expert Steven Zhang."
                                        Foreground="#D3E9F1" LineHeight="20" Margin="15,0,0,0" TextWrapping="Wrap"/>
                             </StackPanel>
                             <Image Source="../Assets/Images/logo.png"  Grid.Column="1" Width="60" Height="60"   />
