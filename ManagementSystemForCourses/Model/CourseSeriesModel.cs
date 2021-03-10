@@ -17,3 +17,4 @@ namespace ManagementSystemForCourses.Model
         public ObservableCollection<SeriesModel> SeriesList { get; set; }
     }
 }
+  

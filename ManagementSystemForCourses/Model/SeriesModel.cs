@@ -11,7 +11,7 @@ namespace ManagementSystemForCourses.Model
 
         public string SeriesName { get; set; }
 
-        public int CurrentViewCount { get; set; }
+        public decimal CurrentViewCount { get; set; }
 
         public bool IsGrowing { get; set; }
 

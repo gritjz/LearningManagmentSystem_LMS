@@ -389,7 +389,7 @@
 
                                     <Border BorderBrush="#DDD" BorderThickness="0,0,1,0" Margin="0,10"/>
                                     <Border BorderBrush="#DDD" BorderThickness="0,0,1,0" Margin="0,10" Grid.Column="1"/>
-                                    <TextBlock Text="c#.NET Architect Camp" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#444"/>
+                                    <TextBlock Text="{Binding CourseName}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#444"/>
                                     <lc:PieChart  Grid.Column="1" LegendLocation="Right" InnerRadius="15" Margin="0,0,15,0" Series="{Binding SeriesCollection}">
 
                                         <!--<lc:PieChart.Series>
@@ -412,7 +412,7 @@
                                     <ItemsControl Grid.Column="2" ItemsSource="{Binding SeriesList}">
                                         <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
-                                                <UniformGrid Columns="5"/>
+                                                <UniformGrid Columns="{Binding DataContext.ItemCount,RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"/>
                                             </ItemsPanelTemplate>
                                         </ItemsControl.ItemsPanel>
                                         <ItemsControl.ItemTemplate>

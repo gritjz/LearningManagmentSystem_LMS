@@ -187,7 +187,7 @@
                 <TextBox Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" 
                          Width="300" Height="32"  Text="{Binding SearchText}"
                          Template="{StaticResource SearchTextBoxTemplate}" 
-                         Foreground="White"/>
+                         Foreground="White"  Margin="4,4"/>
 
                 <ContentControl Grid.Row="2" Content="{Binding MainContent}"/>
 

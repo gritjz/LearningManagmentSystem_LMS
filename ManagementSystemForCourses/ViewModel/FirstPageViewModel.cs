@@ -1,6 +1,7 @@
 ﻿using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
+using ManagementSystemForCourses.DataAccess;
 using ManagementSystemForCourses.Model;
 using System;
 using System.Collections.Generic;
@@ -23,95 +24,115 @@ namespace ManagementSystemForCourses.ViewModel
             set { instrumentValue = value; this.DoNotify(); }
         }
 
+        private int itemCount;
+
+        public int ItemCount
+        {
+            get { return itemCount; }
+            set { itemCount = value; this.DoNotify(); }
+        }
+
+
         public ObservableCollection<CourseSeriesModel> CourseSeriesList { get; set; } =
             new ObservableCollection<CourseSeriesModel>();
 
 
         private void InitCourseSeries()
         {
-            CourseSeriesList.Add(new CourseSeriesModel
-            {
-                CourseName = "Java Advanced Practice VIP",
-                SeriesCollection = new LiveCharts.SeriesCollection
-                {
-                 new PieSeries{
-                        Title="Zhang's",
-                        Values= new ChartValues<ObservableValue>{ new ObservableValue(123)},
-                        DataLabels=false},
 
-                    new PieSeries
-                     {
-                        Title="Zhang's",
-                        Values= new ChartValues<ObservableValue>{ new ObservableValue(123)},
-                        DataLabels=false
-                     }
-                },
-                SeriesList = new ObservableCollection<SeriesModel>
-                {
-                    new SeriesModel
-                    {
-                        SeriesName="Class 1", CurrentViewCount=161, IsGrowing=false, GrowingRate=-75
-                    },
-                    new SeriesModel
-                    {
-                        SeriesName="Class 2", CurrentViewCount=161, IsGrowing=false, GrowingRate=-75
-                    },
-                    new SeriesModel
-                    {
-                        SeriesName="Class 3", CurrentViewCount=161, IsGrowing=true, GrowingRate=-75
-                    },
-                    new SeriesModel
-                    {
-                        SeriesName="Class 4", CurrentViewCount=161, IsGrowing=false, GrowingRate=-75
-                    },
-                    new SeriesModel
-                    {
-                        SeriesName="Class 5", CurrentViewCount=161, IsGrowing=true, GrowingRate=-75
-                    }
-                }
-            });
 
-            CourseSeriesList.Add(new CourseSeriesModel
-            {
-                CourseName = "Java Advanced Practice VIP 2",
-                SeriesCollection = new LiveCharts.SeriesCollection
-                {
-                 new PieSeries{
-                        Title="Zhang's",
-                        Values= new ChartValues<ObservableValue>{ new ObservableValue(123)},
-                        DataLabels=false},
 
-                    new PieSeries
-                     {
-                        Title="Zhang's",
-                        Values= new ChartValues<ObservableValue>{ new ObservableValue(123)},
-                        DataLabels=false
-                     }
-                },
-                SeriesList = new ObservableCollection<SeriesModel>
-                {
-                    new SeriesModel
-                    {
-                        SeriesName="Class 1", CurrentViewCount=161, IsGrowing=false, GrowingRate=-75
-                    },
-                    new SeriesModel
-                    {
-                        SeriesName="Class 2", CurrentViewCount=161, IsGrowing=false, GrowingRate=-75
-                    },
-                    new SeriesModel
-                    {
-                        SeriesName="Class 3", CurrentViewCount=161, IsGrowing=true, GrowingRate=-75
-                    },
-                    new SeriesModel
-                    {
-                        SeriesName="Class 4", CurrentViewCount=161, IsGrowing=false, GrowingRate=-75
-                    },
-                    new SeriesModel
-                    {
-                        SeriesName="Class 5", CurrentViewCount=161, IsGrowing=true, GrowingRate=-75
-                    }
-                }
-            });
+            var cList = LocalDataAccess.GetInstance().GetCoursePlayRecord();
+            this.ItemCount = cList.Max(c => c.SeriesList.Count);
+            foreach (var item in cList)
+                this.CourseSeriesList.Add(item);
+
+
+
+
+
+            //CourseSeriesList.Add(new CourseSeriesModel
+            //            {
+            //                CourseName = "Java Advanced Practice VIP",
+            //                SeriesCollection = new LiveCharts.SeriesCollection
+            //                {
+            //                 new PieSeries{
+            //                        Title="Zhang's",
+            //                        Values= new ChartValues<ObservableValue>{ new ObservableValue(123)},
+            //                        DataLabels=false},
+            //                    new PieSeries
+            //                     {
+            //                        Title="Zhang's",
+            //                        Values= new ChartValues<ObservableValue>{ new ObservableValue(123)},
+            //                        DataLabels=false
+            //                     }
+            //                },
+            //                SeriesList = new ObservableCollection<SeriesModel>
+            //                {
+            //                    new SeriesModel
+            //                    {
+            //                        SeriesName="Class 1", CurrentViewCount=161, IsGrowing=false, GrowingRate=-75
+            //                    },
+            //                    new SeriesModel
+            //                    {
+            //                        SeriesName="Class 2", CurrentViewCount=161, IsGrowing=false, GrowingRate=-75
+            //                    },
+            //                    new SeriesModel
+            //                    {
+            //                        SeriesName="Class 3", CurrentViewCount=161, IsGrowing=true, GrowingRate=-75
+            //                    },
+            //                    new SeriesModel
+            //                    {
+            //                        SeriesName="Class 4", CurrentViewCount=161, IsGrowing=false, GrowingRate=-75
+            //                    },
+            //                    new SeriesModel
+            //                    {
+            //                        SeriesName="Class 5", CurrentViewCount=161, IsGrowing=true, GrowingRate=-75
+            //                    }
+            //                }
+            //            });
+            //CourseSeriesList.Add(new CourseSeriesModel
+            //{
+            //    CourseName = "Java Advanced Practice VIP 2",
+            //    SeriesCollection = new LiveCharts.SeriesCollection
+            //    {
+            //     new PieSeries{
+            //            Title="Zhang's",
+            //            Values= new ChartValues<ObservableValue>{ new ObservableValue(123)},
+            //            DataLabels=false},
+            //        new PieSeries
+            //         {
+            //            Title="Zhang's",
+            //            Values= new ChartValues<ObservableValue>{ new ObservableValue(123)},
+            //            DataLabels=false
+            //         }
+            //    },
+            //    SeriesList = new ObservableCollection<SeriesModel>
+            //    {
+            //        new SeriesModel
+            //        {
+            //            SeriesName="Class 1", CurrentViewCount=161, IsGrowing=false, GrowingRate=-75
+            //        },
+            //        new SeriesModel
+            //        {
+            //            SeriesName="Class 2", CurrentViewCount=161, IsGrowing=false, GrowingRate=-75
+            //        },
+            //        new SeriesModel
+            //        {
+            //            SeriesName="Class 3", CurrentViewCount=161, IsGrowing=true, GrowingRate=-75
+            //        },
+            //        new SeriesModel
+            //        {
+            //            SeriesName="Class 4", CurrentViewCount=161, IsGrowing=false, GrowingRate=-75
+            //        },
+            //        new SeriesModel
+            //        {
+            //            SeriesName="Class 5", CurrentViewCount=161, IsGrowing=true, GrowingRate=-75
+            //        }
+            //    }
+            //});
+
+
         }
 
 
