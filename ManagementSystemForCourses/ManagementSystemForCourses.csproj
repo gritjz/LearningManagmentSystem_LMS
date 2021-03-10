@@ -201,5 +201,10 @@
       <Name>ManagementSystemForCourses.Controls</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\db_scripts\data_only.sql" />
+    <Content Include="Assets\db_scripts\schemaanddata.sql" />
+    <Content Include="Assets\db_scripts\schemaOnly.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
