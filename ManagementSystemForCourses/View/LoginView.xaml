@@ -197,6 +197,7 @@
                                                 <ColumnDefinition/>
                                                 <ColumnDefinition Width="80"/>
                                             </Grid.ColumnDefinitions>
+                                            <!--Validation code text-->
                                             <TextBlock Text="&#xe61f;" VerticalAlignment="Center" HorizontalAlignment="Center" 
                                            FontSize="15" Foreground="#555" FontFamily="../Assets/Fonts/#iconfont"/>
                                             <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" 
@@ -204,7 +205,10 @@
                                           HorizontalScrollBarVisibility="Hidden" 
                                           VerticalScrollBarVisibility="Hidden"
                                           VerticalAlignment="Center" MinHeight="20"/>
+                                            
+                                            <!--Validation code image-->
                                             <Image Source="" Grid.Column="2"/>
+                                            
                                         </Grid>
                                     </Border>
                                     <ControlTemplate.Triggers>
@@ -256,6 +260,7 @@
                     Style="{StaticResource WindowControlButtonStyle}"
                     Command="{Binding CloseWindowCommand}" 
                     CommandParameter="{Binding ElementName=window1}"/>
+            <!--Login top-->
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Border Background="Wheat" CornerRadius="50" Margin="0,0,0,20">
                     <Border.Effect>
@@ -269,6 +274,7 @@
                 </Border>
                 <TextBlock Text="ZHANG'S COURSES MANAGEMENT SYSTEM" HorizontalAlignment="Center" FontSize="12" Foreground="White"/>
             </StackPanel>
+            <!--Login mid-->
             <Grid Grid.Row="1" Margin="20,10" FocusManager.FocusedElement="{Binding ElementName=txtUserName}">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -277,14 +283,14 @@
                     <RowDefinition/>
                     <RowDefinition MinHeight="23" Height="auto"/>
                 </Grid.RowDefinitions>
-                <!--<TextBox Text="&#xe72f;" Height="40" FontFamily="../Assets/Fonts/#iconfont"/>-->
+                <!--User name-->
                 <TextBox Height="40" x:Name="txtUserName" Style="{DynamicResource LoginViewUserNameTextBoxStyle}"
                          Text="{Binding LoginModel.Username,UpdateSourceTrigger=PropertyChanged}">
                     <TextBox.InputBindings>
                         <KeyBinding Key="Enter" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=window1}"/>
                     </TextBox.InputBindings>
                 </TextBox>
-
+                <!--Login Password-->
                 <PasswordBox Grid.Row="1" Height="40"
                              Style="{DynamicResource LoginViewPasswordPasswordBoxStyle1}"
                              common:PasswordHelper.Attach="false"
@@ -293,7 +299,7 @@
                         <KeyBinding Key="Enter" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=window1}"/>
                     </PasswordBox.InputBindings>
                 </PasswordBox>
-
+                <!--Login Validation Code-->
                 <TextBox Grid.Row="2" Height="40" 
                          Style="{DynamicResource LoginViewValidateCodeTextBoxStyle}"
                          Text="{Binding LoginModel.ValidataionCode,UpdateSourceTrigger=PropertyChanged}">
@@ -301,17 +307,16 @@
                         <KeyBinding Key="Enter" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=window1}"/>
                     </TextBox.InputBindings>
                 </TextBox>
-
+                <!--Login button-->
                 <Button Content="Login" Grid.Row="3" Height="40" Foreground="White" FontSize="16" 
                         Template="{StaticResource LoginButtonTemplate}"
                         Command="{Binding LoginCommand}"
                         CommandParameter="{Binding ElementName=window1}" IsDefault="True"/>
-
+                <!--Login error msg-->
                 <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" FontSize="13" 
                            VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" LineHeight="22" Grid.Row="4"/>
-
-
             </Grid>
+            <!--Login bottom-->
             <Grid Grid.Row="2" Margin="10,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10"/>
@@ -328,6 +333,7 @@
                     <TextBlock Text="OR" Grid.Column="1" Foreground="#CCC" 
                                VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
+                <!--Login option buttons-->
                 <UniformGrid Columns="5" Grid.Row="1"  >
                     <UniformGrid.Resources>
                         <Style TargetType="TextBlock">
@@ -352,6 +358,7 @@
                 </UniformGrid>
 
             </Grid>
+            <!--Progress bar-->
             <Border Background="Transparent" Grid.Row="1" Grid.RowSpan="2"  Visibility="{Binding ShowProgress}">
                 <ProgressBar VerticalAlignment="Top" Height="3" IsIndeterminate="True" Foreground="Orange"
                              Background="Transparent" BorderThickness="0"/>
