@@ -19,6 +19,7 @@
     ·
     <a href="https://github.com/gritjz/LearningManagmentSystem_LMS/pulls">Request Feature</a>
   </p>
+  
   <p>
      <a href="https://github.com/badges/shields/graphs/contributors" alt="f">
         <img src="https://img.shields.io/badge/f-a-green" /></a>
@@ -85,7 +86,7 @@ __Learning/Course Management System (LMS/CMS)__ is to real-time manage and visul
 <span style="color:blue">some *blue* text</span>.
 <!-- project status -->
 ## Status
-__*UNDERGOING*__
+__*UNDERGOING*__ https://img.shields.io/badge/-UNDERGOING-orange
 * Main framework is available to use. Other features will come soon.
 
 
