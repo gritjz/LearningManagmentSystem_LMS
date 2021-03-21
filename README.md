@@ -37,7 +37,7 @@
           <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
         <a href="https://github.com/gritjz">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>
-        <a href="stevenzh811@gmail.com" >stevenzh811
+        <a href="mailto:stevenzh811@gmail.com" >stevenzh811
           <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
     </p>
 </p>
