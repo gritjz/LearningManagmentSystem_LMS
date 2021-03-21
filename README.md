@@ -21,31 +21,11 @@
   </p>
   
   <p>
-     <a href="https://github.com/badges/shields/graphs/contributors" alt="f">
-        <img src="https://img.shields.io/badge/f-a-green" /></a>
-    <a href="https://github.com/gritjz/LearningManagmentSystem_LMS#backers" alt="Backers on Open Collective">
-        <img src="https://img.shields.io/badge/-brightgreen-brightgreen" /></a>
-    <a href="#sponsors" alt="Sponsors on Open Collective">
-        <img src="https://img.shields.io/opencollective/sponsors/shields" /></a>
-    <a href="https://github.com/badges/shields/pulse" alt="Activity">
-        <img src="https://img.shields.io/github/commit-activity/m/badges/shields" /></a>
-    <a href="https://circleci.com/gh/badges/shields/tree/master">
-        <img src="https://img.shields.io/circleci/project/github/badges/shields/master" alt="build status"></a>
-    <a href="https://circleci.com/gh/badges/daily-tests">
-        <img src="https://img.shields.io/circleci/project/github/badges/daily-tests?label=service%20tests"
-            alt="service-test status"></a>
-    <a href="https://coveralls.io/github/badges/shields">
-        <img src="https://img.shields.io/coveralls/github/badges/shields"
-            alt="coverage"></a>
-    <a href="https://lgtm.com/projects/g/badges/shields/alerts/">
-        <img src="https://img.shields.io/lgtm/alerts/g/badges/shields"
-            alt="Total alets"/></a>
-    <a href="https://www.linkedin.com/in/jzhangcs/">
-        <img src="https://img.shields.io/twitter/follow/jzhangcs?style=social&logo=linkedin"
-            alt="follow on Linkedin"></a>
+    ![](https://img.shields.io/badge/language-csharp-orange.svg)
+   ![](https://img.shields.io/cocoapods/l/Alamofire.svg?style=flat)
   </p>
   
-  ![](https://img.shields.io/cocoapods/l/Alamofire.svg?style=flat)
+ 
 </p>
 
 
