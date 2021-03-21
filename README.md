@@ -87,7 +87,7 @@ __Learning/Course Management System (LMS/CMS)__ is to real-time manage and visul
 <!-- project status -->
 ## Status
 __*<a href="https://github.com/badges/shields/graphs/contributors" alt="f">
-        <img src="https://img.shields.io/badge/-UNDERGOING-orange" width="40" height="60"/></a>*__ 
+        <img src="https://img.shields.io/badge/-UNDERGOING-orange" width="80" height="40"/></a>*__ 
 
 
 
