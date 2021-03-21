@@ -43,8 +43,8 @@
       <a href="#status">Status</a>
     </li>
     <li><a href="#license">License</a></li>
-    <li><a href="#demos">Demos</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#demos">Demos</a></li>
   </ol>
 </details>
 
@@ -83,7 +83,20 @@ __*<a href="https://github.com/badges/shields/graphs/contributors" alt="f">
 Distributed under the MIT License. See `LICENSE` for more information.
 
 
+<!-- CONTACT -->
+## Contact
 
+<p align="left"> 
+  <p>
+  Steven Zhang
+  </p>
+  <a href="https://www.linkedin.com/in/jzhangcs/">
+     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" /></a>
+  <a href="mailto:stevenzh811@gmail.com">
+     <img src="https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white" /></a>
+   <a href="https://github.com/gritjz">
+     <img src="https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white" /></a>  ----> :+1:
+</p>
 
 
 ## Demos
@@ -111,20 +124,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Courses Filter Applied
 
 ![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/6.png)
-
-<!-- CONTACT -->
-## Contact
-
-<p align="left"> 
-  <p>
-  Steven Zhang
-  </p>
-  <a href="https://www.linkedin.com/in/jzhangcs/">
-     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" /></a>
-  <a href="mailto:stevenzh811@gmail.com">
-     <img src="https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white" /></a>
-   <a href="https://github.com/gritjz">
-     <img src="https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white" /></a>  ----> :+1:
-</p>
 
 @grijz
