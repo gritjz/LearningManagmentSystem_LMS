@@ -25,7 +25,7 @@
   </a>
     <a href="https://github.com/gritjz/LearningManagmentSystem_LMS#backers" alt="Framework">
         <img src="https://img.shields.io/badge/.NET-5C2D91?style=flat&logo=.net&logoColor=white" />
-    <a href="https://github.com/badges/shields/pulse" alt="Activity">
+    <a href="https://github.com/gritjz/LearningManagmentSystem_LMS/pulse" alt="Activity">
       <img src="https://img.shields.io/github/commit-activity/m/gritjz/LearningManagmentSystem_LMS?style=flat" />
   </a>
   </p>
