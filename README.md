@@ -23,7 +23,7 @@
      <a href="https://github.com/badges/shields/graphs/contributors" alt="f">
         <img src="https://img.shields.io/badge/f-a-green" /></a>
     <a href="#backers" alt="Backers on Open Collective">
-        <img src="https://img.shields.io/opencollective/backers/shields" /></a>
+        <img src="https://img.shields.io/endpoint" /></a>
     <a href="#sponsors" alt="Sponsors on Open Collective">
         <img src="https://img.shields.io/opencollective/sponsors/shields" /></a>
     <a href="https://github.com/badges/shields/pulse" alt="Activity">
