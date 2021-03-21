@@ -21,14 +21,13 @@
   </p>
   <p align="center">
     <a href="https://github.com/gritjz/LearningManagmentSystem_LMS#backers">
-        <img src="https://img.shields.io/badge/language-csharp-orange.svg?style=flat" /></a>
-    <a href="" alt="Framework">
-        <img src="https://img.shields.io/badge/.NET-5C2D91?style=flat&logo=.net&logoColor=white" /></a>
-    <a href="https://github.com/gritjz/LearningManagmentSystem_LMS#backers">
-        <img src="https://img.shields.io/badge/language-csharp-orange.svg?style=flat" /></a>
+        <img src="https://img.shields.io/badge/language-csharp-orange.svg?style=flat" />
+  </a>
+    <a href="https://github.com/gritjz/LearningManagmentSystem_LMS#backers" alt="Framework">
+        <img src="https://img.shields.io/badge/.NET-5C2D91?style=flat&logo=.net&logoColor=white" />
     <a href="https://github.com/badges/shields/pulse" alt="Activity">
-        <img src="https://img.shields.io/github/commit-activity/m/badges/shields?style=flat" /></a>
-  
+      <img src="https://img.shields.io/github/commit-activity/m/badges/shields?style=flat" />
+  </a>
   </p>
    
 </p>
@@ -74,7 +73,7 @@ __Learning/Course Management System (LMS/CMS)__ is to real-time manage and visul
 <!-- project status -->
 ## Status
 __*<a href="https://github.com/badges/shields/graphs/contributors" alt="f">
-        <img src="https://img.shields.io/badge/-UNDERGOING-orange" width="100" height="30"/></a>*__ 
+        <img src="https://img.shields.io/badge/-UNDERGOING-orange" width="100" height="25"/></a>*__ 
 
 
 
