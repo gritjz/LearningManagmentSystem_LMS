@@ -20,25 +20,18 @@
     <a href="https://github.com/gritjz/LearningManagmentSystem_LMS/pulls">Request Feature</a>
   </p>
   <p align="center">
-    <a href="https://github.com/badges/shields/graphs/contributors" alt="Contributors">
-        <img src="https://img.shields.io/github/contributors/badges/shields" /></a>
-    <a href="#backers" alt="Backers on Open Collective">
-        <img src="https://img.shields.io/opencollective/backers/shields" /></a>
-    <a href="#sponsors" alt="Sponsors on Open Collective">
-        <img src="https://img.shields.io/opencollective/sponsors/shields" /></a>
    <a href="https://github.com/badges/shields/pulse" alt="Activity">
-        <img src="https://img.shields.io/github/commit-activity/m/badges/shields?style=for-the-badge" /></a>
+        <img src="https://img.shields.io/github/commit-activity/m/badges/shields?style=flat" /></a>
    <a href="https://github.com/gritjz/LearningManagmentSystem_LMS#backers">
-        <img src="https://img.shields.io/badge/language-csharp-orange.svg?style=for-the-badge" /></a>
-  
+        <img src="https://img.shields.io/badge/language-csharp-orange.svg?style=flat" /></a>
   </p>
     <p align="center">  
         <a href="https://www.linkedin.com/in/jzhangcs/">
-          <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+          <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" /></a>
         <a href="https://github.com/gritjz">
-          <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>
+          <img src="https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white" /></a>
         <a href="mailto:stevenzh811@gmail.com">
-          <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+          <img src="https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white" /></a>
     </p>
 </p>
 
