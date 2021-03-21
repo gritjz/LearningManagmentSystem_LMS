@@ -59,7 +59,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Steven Zhang - [E-mail](stevenzh811@gmail.com) - stevenzh811@gmail.com
+Steven Zhang - stevenzh811@gmail.com
 
 Project Link - [GitHub](https://github.com/gritjz/LearningManagmentSystem)
 
