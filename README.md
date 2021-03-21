@@ -29,7 +29,7 @@
    <a href="https://github.com/badges/shields/pulse" alt="Activity">
         <img src="https://img.shields.io/github/commit-activity/m/badges/shields" /></a>
    <a href="https://github.com/gritjz/LearningManagmentSystem_LMS#backers">
-        <img src="https://img.shields.io/badge/language-csharp-orange.svg" /></a>
+        <img src="https://img.shields.io/badge/language-csharp-orange.svg?style=for-the-badge" /></a>
    <a href="https://www.linkedin.com/in/jzhangcs/">
         <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
   </p>
