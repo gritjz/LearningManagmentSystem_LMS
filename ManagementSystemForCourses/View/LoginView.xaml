@@ -261,7 +261,7 @@
                     Command="{Binding CloseWindowCommand}" 
                     CommandParameter="{Binding ElementName=window1}"/>
             <!--Login top-->
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="WinTopMove_MouseLeftButtonDown">
                 <Border Background="Wheat" CornerRadius="50" Margin="0,0,0,20">
                     <Border.Effect>
                         <DropShadowEffect Color="Wheat" ShadowDepth="0" BlurRadius="10" Opacity="0.3" />

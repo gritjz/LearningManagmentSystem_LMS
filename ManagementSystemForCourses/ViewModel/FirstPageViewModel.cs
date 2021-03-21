@@ -39,9 +39,6 @@ namespace ManagementSystemForCourses.ViewModel
 
         private void InitCourseSeries()
         {
-
-
-
             var cList = LocalDataAccess.GetInstance().GetCoursePlayRecord();
             this.ItemCount = cList.Max(c => c.SeriesList.Count);
             foreach (var item in cList)

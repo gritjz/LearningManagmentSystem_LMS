@@ -115,7 +115,6 @@ namespace ManagementSystemForCourses.Controls
         public InstrumentPanel()
         {
             InitializeComponent();
-
             this.SizeChanged += InstrumentPanel_SizeChanged;
         }
 
