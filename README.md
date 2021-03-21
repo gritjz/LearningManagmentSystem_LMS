@@ -28,9 +28,10 @@
         <img src="https://img.shields.io/opencollective/sponsors/shields" /></a>
     <a href="https://github.com/badges/shields/pulse" alt="Activity">
         <img src="https://img.shields.io/github/commit-activity/m/badges/shields" /></a>
-    ![](https://img.shields.io/badge/language-csharp-orange.svg)
-    ![](https://img.shields.io/cocoapods/l/Alamofire.svg?style=flat)
+   
   </p>
+   ![](https://img.shields.io/badge/language-csharp-orange.svg)
+    ![](https://img.shields.io/cocoapods/l/Alamofire.svg?style=flat)
 </p>
 
 
