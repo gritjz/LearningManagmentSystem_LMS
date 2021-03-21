@@ -1,6 +1,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-Learning/Course Management System (LMS/CMS): to be used to manage and visulize the status learning courses for both teachers and students based on dynamic data from databases
+__Learning/Course Management System (LMS/CMS)__ is to real-time manage and visulize the status of the courses for both teachers and students based on dynamic data from databases.
 
 ### Built With
 * Language: C#
@@ -10,6 +10,7 @@ Learning/Course Management System (LMS/CMS): to be used to manage and visulize t
 * LiveCharts
 * MVVM mode, Dependency injection, Customized user controls
 * Asynchronous operations: Task, await/async
+* Embeded multiple interfaces with databases
 * Scalable Framework and Stable Performance
 
 
