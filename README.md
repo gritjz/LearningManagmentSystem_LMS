@@ -30,8 +30,7 @@
         <img src="https://img.shields.io/github/commit-activity/m/badges/shields" /></a>
    
   </p>
-   ![](https://img.shields.io/badge/language-csharp-orange.svg)
-    ![](https://img.shields.io/cocoapods/l/Alamofire.svg?style=flat)
+  ![](https://img.shields.io/cocoapods/l/Alamofire.svg?style=flat)
 </p>
 
 
