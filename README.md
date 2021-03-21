@@ -61,6 +61,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Steven Zhang - stevenzh811@gmail.com
 
-Project Link - [GitHub](https://github.com/gritjz/LearningManagmentSystem)
+Project Link - [GitHub](https://github.com/gritjz/LearningManagmentSystem) - @grijz :+1:
 
-@grijz :+1:
