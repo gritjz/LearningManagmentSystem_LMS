@@ -8,8 +8,8 @@ Learning/Course Management System (LMS/CMS): to be used to manage and visulize t
 * Windows Presentation Foundation(WPF)
 * Microsoft SQL server: 2019.0150.2000.05
 * LiveCharts
-* Based on MVVM mode, Changable DependencyProperty, multiple customized user controls
-* Asynchronous operation: Task, await/async
+* MVVM mode, Dependency injection, Customized user controls
+* Asynchronous operations: Task, await/async
 * Scalable Framework and Stable Performance
 
 
