@@ -114,7 +114,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 * Home Page
 
-<img src="Screenshots/2.png" width="200" />
+<img src="Screenshots/2.png" height="200" />
 
 * Media Details View
 
