@@ -114,22 +114,22 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 * Home Page
 
-<img src="Screenshots/2.png" height="200" />
+<img src="Screenshots/2.png" height="300" />
 
 * Media Details View
 
-<img src="Screenshots/3.png" width="200" />
+<img src="Screenshots/3.png" height="300" />
 
 * Skeleton Screen as Loading Pages
 
-<img src="Screenshots/4.png" width="200" />
+<img src="Screenshots/4.png" height="300" />
 
 * Courses Page
 
-<img src="Screenshots/5.png" width="200" />
+<img src="Screenshots/5.png" height="300" />
 
 * Courses Filter Applied
 
-<img src="Screenshots/6.png" width="200" />
+<img src="Screenshots/6.png" height="300" />
 
 @grijz
