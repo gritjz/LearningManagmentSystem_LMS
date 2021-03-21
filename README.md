@@ -19,10 +19,8 @@
     ·
     <a href="https://github.com/gritjz/LearningManagmentSystem_LMS/pulls">Request Feature</a>
   </p>
-  
   <p>
-    ![](https://img.shields.io/badge/language-csharp-orange.svg)
-   ![](https://img.shields.io/cocoapods/l/Alamofire.svg?style=flat)
+    ![](https://img.shields.io/cocoapods/l/Alamofire.svg?style=flat)
   </p>
   
  
