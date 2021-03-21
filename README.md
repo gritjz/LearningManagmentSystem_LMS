@@ -17,17 +17,29 @@ Main framework is available to use.
 Other features will come soon.
 
 #Login View
+
 ![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/1.png)
+
 #Home Page
+
 ![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/2.png)
+
 #Media Details View
+
 ![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/3.png)
+
 #Skeleton Screen as Loading Pages
+
 ![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/4.png)
+
 #Courses Page
+
 ![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/5.png)
+
 #Courses Filter Applied
+
 ![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/6.png)
+
 
 
 @grijz :+1:
