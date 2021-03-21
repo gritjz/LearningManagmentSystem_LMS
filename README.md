@@ -41,7 +41,7 @@
         <img src="https://img.shields.io/lgtm/alerts/g/badges/shields"
             alt="Total alets"/></a>
     <a href="https://www.linkedin.com/in/jzhangcs/">
-        <img src="https://img.shields.io/twitter/follow/shields_io?style=social&logo=linkedin"
+        <img src="https://img.shields.io/twitter/follow?style=social&logo=linkedin"
             alt="follow on Linkedin"></a>
   </p>
 </p>
