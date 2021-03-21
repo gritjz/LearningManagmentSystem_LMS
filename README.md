@@ -1,3 +1,24 @@
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#status">Status</a>
+    </li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#demos">Demos</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 __Learning/Course Management System (LMS/CMS)__ is to real-time manage and visulize the status of the courses for both teachers and students based on dynamic data from databases.
@@ -31,7 +52,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 
 
-## Screenshots
+## Demos
 
 * Login View
 
