@@ -25,14 +25,7 @@
    <a href="https://github.com/gritjz/LearningManagmentSystem_LMS#backers">
         <img src="https://img.shields.io/badge/language-csharp-orange.svg?style=flat" /></a>
   </p>
-    <p align="center">  
-        <a href="https://www.linkedin.com/in/jzhangcs/">
-          <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" /></a>
-        <a href="https://github.com/gritjz">
-          <img src="https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white" /></a>
-        <a href="mailto:stevenzh811@gmail.com">
-          <img src="https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white" /></a>
-    </p>
+   
 </p>
 
 
@@ -122,8 +115,17 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Steven Zhang - stevenzh811@gmail.com
+<p align="center">  
+  Steven Zhang - 
+  <a href="https://www.linkedin.com/in/jzhangcs/">
+     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" /></a>
+  <a href="mailto:stevenzh811@gmail.com">
+     <img src="https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white" /></a>
+   <a href="https://github.com/gritjz">
+     <img src="https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white" /></a>  ----> :+1:
+</p>
+stevenzh811@gmail.com
 
-Project Link - [GitHub](https://github.com/gritjz/LearningManagmentSystem) ---->:+1:
+Project Link - [GitHub](https://github.com/gritjz/LearningManagmentSystem)
 
 @grijz
