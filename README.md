@@ -17,8 +17,7 @@ Learning/Course Management System (LMS/CMS): to be used to manage and visulize t
 <!-- project status -->
 ## Status
 __*UNDERGOING*__
-Main framework is available to use.
-Other features will come soon.
+* Main framework is available to use. Other features will come soon.
 
 
 
@@ -26,6 +25,10 @@ Other features will come soon.
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
+
+
+
 
 ##Screenshots
 
