@@ -1,4 +1,3 @@
-# LearningManagmentSystem
 ## INTRODUCTION
 Learning/Course Managment System (LMS/CMS): to be used to manage and visulize the status learning courses for both teachers and students.
  
