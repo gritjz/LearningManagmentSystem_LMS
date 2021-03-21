@@ -110,27 +110,26 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 * Login View
 
-<img src="Screenshots/1.png" width="100" />
-![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/1.png)
+<img src="Screenshots/1.png" width="200" />
 
 * Home Page
 
-![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/2.png)
+<img src="Screenshots/2.png" width="200" />
 
 * Media Details View
 
-![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/3.png)
+<img src="Screenshots/3.png" width="200" />
 
 * Skeleton Screen as Loading Pages
 
-![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/4.png)
+<img src="Screenshots/4.png" width="200" />
 
 * Courses Page
 
-![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/5.png)
+<img src="Screenshots/5.png" width="200" />
 
 * Courses Filter Applied
 
-![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/6.png)
+<img src="Screenshots/6.png" width="200" />
 
 @grijz
