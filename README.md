@@ -14,7 +14,7 @@ __Learning/Course Management System (LMS/CMS)__ is to real-time manage and visul
 * Scalable Framework and Stable Performance
 
 
-
+<span style="color:blue">some *blue* text</span>.
 <!-- project status -->
 ## Status
 __*UNDERGOING*__
