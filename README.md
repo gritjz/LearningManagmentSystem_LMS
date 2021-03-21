@@ -20,8 +20,8 @@
     <a href="https://github.com/gritjz/LearningManagmentSystem_LMS/pulls">Request Feature</a>
   </p>
   <p>
-     <a href="https://github.com/badges/shields/graphs/contributors" alt="Contributors">
-        <img src="https://img.shields.io/github/contributors/badges/shields" /></a>
+     <a href="https://github.com/badges/shields/graphs/contributors" alt="f">
+        <img src="https://img.shields.io/badge/f-a-green" /></a>
     <a href="#backers" alt="Backers on Open Collective">
         <img src="https://img.shields.io/opencollective/backers/shields" /></a>
     <a href="#sponsors" alt="Sponsors on Open Collective">
