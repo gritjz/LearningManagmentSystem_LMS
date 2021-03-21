@@ -86,7 +86,11 @@ __Learning/Course Management System (LMS/CMS)__ is to real-time manage and visul
 <span style="color:blue">some *blue* text</span>.
 <!-- project status -->
 ## Status
-__*UNDERGOING*__ https://img.shields.io/badge/-UNDERGOING-orange
+__*UNDERGOING*__ 
+
+<a href="https://github.com/badges/shields/graphs/contributors" alt="f">
+        <img src="https://img.shields.io/badge/-UNDERGOING-orange" /></a>
+
 * Main framework is available to use. Other features will come soon.
 
 
