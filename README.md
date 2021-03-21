@@ -31,7 +31,7 @@
    
   </p>
    <a href="https://github.com/badges/shields/graphs/contributors" alt="Contributors">
-        <img src="https://img.shields.io/badge/language-csharp-orange.svg" /></a>
+        <img src="https://img.shields.io/badge/language-c#-orange.svg" /></a>
 </p>
 
 
