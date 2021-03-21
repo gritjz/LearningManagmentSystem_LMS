@@ -2,9 +2,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/gritjz/LearningManagmentSystem_LMS">
+  <!-- <a href="https://github.com/gritjz/LearningManagmentSystem_LMS">
     <img src="Screenshots/logo.png" alt="Logo">
-  </a>
+  </a>-->
 
   <h3 align="center">Learning/Course Management System (LMS/CMS)</h3>
 
