@@ -1,7 +1,8 @@
-## INTRODUCTION
+<!-- ABOUT THE PROJECT -->
+## About The Project
 Learning/Course Management System (LMS/CMS): to be used to manage and visulize the status learning courses for both teachers and students based on dynamic data from databases
 
-## Technologies
+### Built With
 * Language: C#
 * Framework: .NET Framework 4.7.5
 * Windows Presentation Foundation(WPF)
@@ -11,35 +12,52 @@ Learning/Course Management System (LMS/CMS): to be used to manage and visulize t
 * Asynchronous operation: Task, await/async
 * Scalable Framework and Stable Performance
 
-## Project Status
+
+
+<!-- project status -->
+## Status
 __*UNDERGOING*__
 Main framework is available to use.
 Other features will come soon.
 
-#Login View
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+##Screenshots
+
+*Login View
 
 ![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/1.png)
 
-#Home Page
+*Home Page
 
 ![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/2.png)
 
-#Media Details View
+*Media Details View
 
 ![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/3.png)
 
-#Skeleton Screen as Loading Pages
+*Skeleton Screen as Loading Pages
 
 ![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/4.png)
 
-#Courses Page
+*Courses Page
 
 ![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/5.png)
 
-#Courses Filter Applied
+*Courses Filter Applied
 
 ![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/6.png)
 
+<!-- CONTACT -->
+## Contact
 
+Steven Zhang - [E-mail](stevenzh811@gmail.com)
+
+Project Link: [LMS](https://github.com/gritjz/LearningManagmentSystem)
 
 @grijz :+1:
