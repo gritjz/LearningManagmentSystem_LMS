@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/gritjz/LearningManagmentSystem_LMS">
-    <img src="Screenshots/logo.png" alt="Logo" width="80" height="80">
+    <img src="Screenshots/logo.png" alt="Logo">
   </a>
 
   <h3 align="center">Learning/Course Management System (LMS/CMS)</h3>
