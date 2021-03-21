@@ -110,7 +110,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 * Login View
 
-<img src="Screenshots/1.png" width="100" height="100" />
+<img src="Screenshots/1.png" width="100" />
 ![image](https://github.com/gritjz/LearningManagmentSystem/blob/11580b25e857703f349235f7bb9353753f084e4e/Screenshots/1.png)
 
 * Home Page
