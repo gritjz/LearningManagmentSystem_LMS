@@ -118,7 +118,7 @@
 
                         <lc:CartesianChart Margin="0,0,0,45">
                             <lc:CartesianChart.Series>
-                                <lc:LineSeries Stroke="#FECC71" Fill="#FFF2DE"
+                                <lc:LineSeries Stroke="DarkBlue" Fill="#FFF2DE"
                                            PointGeometrySize="0" Values="1,2,3,40,5,6,7"/>
                             </lc:CartesianChart.Series>
                             <lc:CartesianChart.AxisX>
