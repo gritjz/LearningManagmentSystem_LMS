@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManagementSystemForCourses.View"
         xmlns:common="clr-namespace:ManagementSystemForCourses.Common"
+        xmlns:msc="clr-namespace:ManagementSystemForCourses.Controls;assembly=ManagementSystemForCourses.Controls"
         mc:Ignorable="d"    Name="window1"
         Title="Login" Height="650" Width="360"
         FontFamily="Microsoft YaHei" FontWeight="ExtraLight"
@@ -205,10 +206,10 @@
                                           HorizontalScrollBarVisibility="Hidden" 
                                           VerticalScrollBarVisibility="Hidden"
                                           VerticalAlignment="Center" MinHeight="20"/>
-                                            
+
                                             <!--Validation code image-->
-                                            <Image Source="" Grid.Column="2"/>
-                                            
+                                            <!--<Image Source="" Grid.Column="2"/>-->
+                                            <msc:ValidationCodeGenerator Name="vcg" Grid.Column="2"/>
                                         </Grid>
                                     </Border>
                                     <ControlTemplate.Triggers>
@@ -250,8 +251,10 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.8*"/>
+                
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="60"/>
+                <RowDefinition Height="1.8*"/>
             </Grid.RowDefinitions>
             <Border Background="#007DFA" CornerRadius="10,10,0,0" MouseLeftButtonDown="WinTopMove_MouseLeftButtonDown"/>
             <Button Name="bdCloseButton" 
@@ -274,6 +277,7 @@
                 </Border>
                 <TextBlock Text="ZHANG'S COURSES MANAGEMENT SYSTEM" HorizontalAlignment="Center" FontSize="12" Foreground="White"/>
             </StackPanel>
+
             <!--Login mid-->
             <Grid Grid.Row="1" Margin="20,10" FocusManager.FocusedElement="{Binding ElementName=txtUserName}">
                 <Grid.RowDefinitions>
@@ -304,7 +308,8 @@
                          Style="{DynamicResource LoginViewValidateCodeTextBoxStyle}"
                          Text="{Binding LoginModel.ValidataionCode,UpdateSourceTrigger=PropertyChanged}">
                     <TextBox.InputBindings>
-                        <KeyBinding Key="Enter" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=window1}"/>
+                        <KeyBinding Key="Enter" Command="{Binding LoginCommand}"
+                                    CommandParameter="{Binding ElementName=window1}"/>
                     </TextBox.InputBindings>
                 </TextBox>
                 <!--Login button-->
@@ -358,7 +363,12 @@
                 </UniformGrid>
 
             </Grid>
-            <!--Progress bar-->
+
+            <Border Grid.Row="3" >
+
+                <msc:ValidationCodeGenerator />
+            </Border>
+                <!--Progress bar-->
             <Border Background="Transparent" Grid.Row="1" Grid.RowSpan="2"  Visibility="{Binding ShowProgress}">
                 <ProgressBar VerticalAlignment="Top" Height="3" IsIndeterminate="True" Foreground="Orange"
                              Background="Transparent" BorderThickness="0"/>
