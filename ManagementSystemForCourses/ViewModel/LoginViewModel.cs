@@ -1,4 +1,5 @@
 ﻿using ManagementSystemForCourses.Common;
+using ManagementSystemForCourses.Controls;
 using ManagementSystemForCourses.DataAccess;
 using ManagementSystemForCourses.Model;
 using System;
@@ -15,6 +16,7 @@ namespace ManagementSystemForCourses.ViewModel
         public LoginModel LoginModel { get; set; } = new LoginModel();
         public CommandBase CloseWindowCommand { get; set; }
         public CommandBase LoginCommand { get; set; }
+        public ValidationCodeGenerator ValidCoder { get; set; }
 
         private string errorMessage;
 
@@ -33,6 +35,7 @@ namespace ManagementSystemForCourses.ViewModel
             {
                 showProgress = value; 
                 this.DoNotify();
+                
                 LoginCommand.RaiseCanExecuteChanged();
             }
         }
@@ -41,7 +44,10 @@ namespace ManagementSystemForCourses.ViewModel
         public LoginViewModel()
         {
             this.LoginModel = new LoginModel();
-
+            this.ValidCoder = new ValidationCodeGenerator();
+            StringBuilder s = new StringBuilder();
+            s.Append(ValidCoder.ValidationCode);
+            LoginModel.ValidataionCode = ValidCoder.ValidationCode;
             this.CloseWindowCommand = new CommandBase();
             this.CloseWindowCommand.DoExecute = new Action<object>((o) => 
             {
@@ -81,7 +87,7 @@ namespace ManagementSystemForCourses.ViewModel
 
             }
 
-            if (LoginModel.ValidataionCode.ToLower() != "etu4")
+            if (LoginModel.ValidataionCode.ToLower() != this.ValidCoder.ValidationCode)
             {
                 this.ErrorMessage = "Incorrect Validation Code!";
                 this.ShowProgress = Visibility.Collapsed;

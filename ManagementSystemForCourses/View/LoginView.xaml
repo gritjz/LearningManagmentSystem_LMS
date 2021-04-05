@@ -202,13 +202,13 @@
                                             <TextBlock Text="&#xe61f;" VerticalAlignment="Center" HorizontalAlignment="Center" 
                                            FontSize="15" Foreground="#555" FontFamily="../Assets/Fonts/#iconfont"/>
                                             <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" 
-                                          Focusable="false" 
-                                          HorizontalScrollBarVisibility="Hidden" 
-                                          VerticalScrollBarVisibility="Hidden"
-                                          VerticalAlignment="Center" MinHeight="20"/>
+                                                Focusable="false" 
+                                                HorizontalScrollBarVisibility="Hidden" 
+                                                VerticalScrollBarVisibility="Hidden"
+                                                VerticalAlignment="Center" MinHeight="20"/>
 
                                             <!--Validation code image-->
-                                            <Image Source="" Grid.Column="2"/>
+                                            <msc:ValidationCodeGenerator Grid.Column="2"/>
                                             <!--<msc:ValidationCodeGenerator Name="vcg" Grid.Column="2"/>-->
                                         </Grid>
                                     </Border>
@@ -251,10 +251,8 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.8*"/>
-                
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="60"/>
-                <RowDefinition Height="1.8*"/>
             </Grid.RowDefinitions>
             <Border Background="#007DFA" CornerRadius="10,10,0,0" MouseLeftButtonDown="WinTopMove_MouseLeftButtonDown"/>
             <Button Name="bdCloseButton" 
@@ -365,9 +363,6 @@
 
             </Grid>
 
-            <Border Grid.Row="3" >
-                <msc:ValidationCodeGenerator/>
-            </Border>
                 <!--Progress bar-->
             <Border Background="Transparent" Grid.Row="1" Grid.RowSpan="2"  Visibility="{Binding ShowProgress}">
                 <ProgressBar VerticalAlignment="Top" Height="3" IsIndeterminate="True" Foreground="Orange"

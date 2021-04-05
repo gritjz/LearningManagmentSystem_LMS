@@ -1,4 +1,5 @@
-﻿using ManagementSystemForCourses.ViewModel;
+﻿
+using ManagementSystemForCourses.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace ManagementSystemForCourses.View
         {
             InitializeComponent();
             this.DataContext = new LoginViewModel();
+            
         }
 
      

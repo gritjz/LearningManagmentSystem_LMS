@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -21,163 +20,163 @@ namespace ManagementSystemForCourses.Controls
     /// <summary>
     /// Interaction logic for ValidationCodeGenerator.xaml
     /// </summary>
-    public partial class ValidationCodeGenerator : UserControl, INotifyPropertyChanged
+    public partial class ValidationCodeGenerator : UserControl
     {
-        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-        public static extern bool DeleteObject(IntPtr hObject);
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void DoNotify([CallerMemberName] string propName = "")
+       
+        public ImageSource ImageSource
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+            get { return (ImageSource)GetValue(ImageSourceProperty); }
+            set { SetValue(ImageSourceProperty, value); }
         }
 
-        private string code;
+        public static readonly DependencyProperty ImageSourceProperty =
+              DependencyProperty.Register("ImageSource", typeof(ImageSource), typeof(ValidationCodeGenerator),
+              new FrameworkPropertyMetadata(null, new PropertyChangedCallback(OnPropertyChanged)));
 
-        public string Code
+
+
+
+        public string ValidationCode
         {
-            get { return code; }
-            set { code = value; }
+            get { return (string)GetValue(ValidationCodeProperty); }
+            set { SetValue(ValidationCodeProperty, value); }
         }
 
-        private ImageSource codeSource;
+        public static readonly DependencyProperty ValidationCodeProperty =
+            DependencyProperty.Register("ValidationCode", typeof(string), typeof(ValidationCodeGenerator), 
+                new PropertyMetadata(null, new PropertyChangedCallback(OnPropertyChanged)));
 
-        public ImageSource CodeSource
+
+        static bool updating = false;
+        public static void OnPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            get { return codeSource; }
-            set { codeSource = value; this.DoNotify(); }
+
+            if (updating)
+            {
+                (d as ValidationCodeGenerator).UpdateCode();
+               
+            }
         }
 
-
-        private Bitmap codeBitmap;
-
-        public Bitmap CodeBitmap
-        {
-            get { return codeBitmap; }
-            set { codeBitmap = value; this.DoNotify(); }
-        }
-
-        private BitmapImage codeBitmapImage;
-
-        public BitmapImage CodeBitmapImage
-        {
-            get { return codeBitmapImage; }
-            set { codeBitmapImage = value; this.DoNotify(); }
-        }
-
-
-        private System.Windows.Controls.Image images;
-
-        public System.Windows.Controls.Image Images
-        {
-            get { return images; }
-            set { images = value; }
-        }
-
-
-        static int ImageHeight, ImageWidth;
 
         public ValidationCodeGenerator()
         {
             InitializeComponent();
+            UpdateCode();
+           
+            this.Loaded += ValidationCodeGenerator_Loaded; ;
             this.SizeChanged += ValidationCodeGenerator_SizeChanged;
         }
 
+        public static int ImageWidth, ImageHeight;
         private void ValidationCodeGenerator_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            ImageHeight = (int)this.grdRoot.RenderSize.Height;
             ImageWidth = (int)this.grdRoot.RenderSize.Width;
+            ImageHeight = (int)this.grdRoot.RenderSize.Height;
+            UpdateCode();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private static string CreateCode(int strLength)
         {
-
-            this.Refresh();
-        }
-
-        private void Refresh()
-        {
-           
-            this.UpdateImage();
-        }
-
-        int i = 0;
-        private void UpdateImage() 
-        {
-            this.CodeBitmap = CreateVerifyCode();
-            this.CodeSource = ChangeBitmapToImageSource(this.CodeBitmap);
-            this.CodeBitmapImage = this.BitmapToBitmapImage(this.CodeBitmap);
-            //this.imgCode.Source = this.CodeSource;
-            if (i == 0)
-            { i++; }
-        }
-
-        private Bitmap CreateVerifyCode()
-        {
-            //Create Bitmap object and draw
-            Bitmap bitmap = new Bitmap(ImageWidth, ImageHeight);
-            Graphics graph = Graphics.FromImage(bitmap);
-            graph.FillRectangle(new SolidBrush(System.Drawing.Color.Orange), 0, 0, ImageWidth, ImageHeight);//Fill the Image area
-            Font font = new Font(System.Drawing.FontFamily.GenericSerif, 40, System.Drawing.FontStyle.Bold, GraphicsUnit.Pixel);
-            Random r = new Random();
-            string letters = "QWERTYUIOPLKJHGFDSAZXCVBNM0987654321";//Every verify code is from here
-            //StringBuilder sb = new StringBuilder();
-            this.Code = "";
-
-            //Create five letters randomly
-            for (int i = 0; i < 4; i++)
+            var strCode = "abcdefhkmnprstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789"; ;
+            var _charArray = strCode.ToCharArray();
+            var randomCode = "";
+            int temp = -1;
+            Random rand = new Random(Guid.NewGuid().GetHashCode());
+            updating = false;
+            for (int i = 0; i < strLength; i++)
             {
-                string letter = letters.Substring(r.Next(0, letters.Length - 1), 1);
-                //sb.Append(letter);
-                this.Code += letter;
-                graph.DrawString(letter, font, new SolidBrush(System.Drawing.Color.Black), i * 30, r.Next(0, 10));
+                if (temp != -1)
+                {
+                    rand = new Random(i * temp * ((int)DateTime.Now.Ticks));
+                }
+                int t = rand.Next(strCode.Length - 1);
+                if (!string.IsNullOrWhiteSpace(randomCode))
+                {
+                    while (randomCode.ToLower().Contains(_charArray[t].ToString().ToLower()))
+                    {
+                        t = rand.Next(strCode.Length - 1);
+                    }
+                }
+                if (temp == t)
+                {
+                    return CreateCode(strLength);
+                }
+                temp = t;
+
+                randomCode += _charArray[t];
             }
-            //code = sb.ToString();
-
-            //Confuse the background
-            System.Drawing.Pen linePen = new System.Drawing.Pen(new SolidBrush(System.Drawing.Color.Black), 2);
-            for (int i = 0; i < 5; i++)
-            {
-                graph.DrawLine(linePen, new System.Drawing.Point(r.Next(0, ImageWidth - 1), r.Next(0, ImageHeight - 1)),
-                    new System.Drawing.Point(r.Next(0, ImageWidth - 1), r.Next(0, ImageHeight - 1)));
-            }
-            return bitmap;
+            return randomCode;
         }
-        public static ImageSource ChangeBitmapToImageSource(Bitmap bitmap)
-        {
-            IntPtr hBitmap = bitmap.GetHbitmap();
-            try
-            {
-                ImageSource wpfBitmap = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
-                    hBitmap,
-                    IntPtr.Zero,
-                    Int32Rect.Empty,
-                    BitmapSizeOptions.FromEmptyOptions());
 
-                //Need to release the hBitmap in time, otherwise the memory will fill up quickly.
-                DeleteObject(hBitmap);
-                return wpfBitmap;
-            }
-            catch
-            {
-                DeleteObject(hBitmap);
+        private ImageSource CreateValidationCodeImage(string code, int width, int height)
+        {
+            updating = false;
+            if (string.IsNullOrWhiteSpace(code))
                 return null;
+            if (width <= 0 || height <= 0)
+                return null;
+            
+            DrawingVisual drawingVisual = new DrawingVisual();
+
+            Random random = new Random(Guid.NewGuid().GetHashCode());
+
+            using (DrawingContext dc = drawingVisual.RenderOpen())
+            {
+                dc.DrawRectangle(Brushes.White, new Pen(Brushes.Silver, 1D), new Rect(new Size(70, 23)));
+                FormattedText formattedText = new FormattedText(code,
+                    System.Globalization.CultureInfo.CurrentCulture, FlowDirection.LeftToRight,
+                    new Typeface(new FontFamily("Arial"), FontStyles.Oblique, FontWeights.Bold, FontStretches.Normal),
+                    20.001D, new LinearGradientBrush(Colors.Green, Colors.DarkRed, 1.2D))
+                {
+                    MaxLineCount = 1,
+                    TextAlignment = TextAlignment.Justify,
+                    Trimming = TextTrimming.CharacterEllipsis
+                };
+
+                dc.DrawText(formattedText, new Point(3D, 0.1D));
+
+                for (int i = 0; i < 10; i++)
+                {
+                    int x1 = random.Next(width - 1);
+                    int y1 = random.Next(height - 1);
+                    int x2 = random.Next(width - 1);
+                    int y2 = random.Next(height - 1);
+
+                    dc.DrawGeometry(Brushes.Silver, new Pen(Brushes.Silver, 0.5D), new LineGeometry(new Point(x1, y1), new Point(x2, y2)));
+                }
+
+                for (int i = 0; i < 100; i++)
+                {
+                    int x = random.Next(width - 1);
+                    int y = random.Next(height - 1);
+                    SolidColorBrush c = new SolidColorBrush(Color.FromRgb((byte)random.Next(0, 255), (byte)random.Next(0, 255), (byte)random.Next(0, 255)));
+                    dc.DrawGeometry(c, new Pen(c, 1D), new LineGeometry(new Point(x - 0.5, y - 0.5), new Point(x + 0.5, y + 0.5)));
+                }
+
+                dc.Close();
             }
+
+            RenderTargetBitmap renderBitmap = new RenderTargetBitmap(70, 23, 96, 96, PixelFormats.Pbgra32);
+            renderBitmap.Render(drawingVisual);
+            return BitmapFrame.Create(renderBitmap);
         }
 
-        private BitmapImage BitmapToBitmapImage(System.Drawing.Bitmap bitmap)
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            BitmapImage bitmapImage = new BitmapImage();
-            using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
-            {
-                bitmap.Save(ms, bitmap.RawFormat);
-                bitmapImage.BeginInit();
-                bitmapImage.StreamSource = ms;
-                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                bitmapImage.EndInit();
-                bitmapImage.Freeze();
-            }
-            return bitmapImage;
+            updating = true;
+            UpdateCode();
+        }
+        private void ValidationCodeGenerator_Loaded(object sender, RoutedEventArgs e)
+        {
+            updating = true;
+            UpdateCode();
+        }
+        private void UpdateCode()
+        {
+            ValidationCode = CreateCode(4);
+            ImageSource = CreateValidationCodeImage(ValidationCode, ImageWidth, ImageHeight);
+            updating = false;
         }
     }
 }

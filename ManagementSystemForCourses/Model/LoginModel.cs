@@ -34,8 +34,14 @@ namespace ManagementSystemForCourses.Model
 
         public string ValidataionCode
         {
-            get { return validataioncode; }
-            set { validataioncode = value; this.DoNotify(); }
+            get 
+            {
+                return validataioncode; 
+            }
+            set { 
+                validataioncode = value; 
+                this.DoNotify(); 
+            }
         }
 
     }

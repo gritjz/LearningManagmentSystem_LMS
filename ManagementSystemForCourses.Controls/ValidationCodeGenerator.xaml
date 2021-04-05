@@ -6,36 +6,13 @@
              xmlns:local="clr-namespace:ManagementSystemForCourses.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-   
-    <Grid x:Name="grdRoot">
-        <Button Click="Button_Click" 
-                Width="{Binding Width, ElementName=grdRoot}" 
-                Height="{Binding Height,ElementName=grdRoot}">
-
-            <Image x:Name="imgCode" 
-                   Source="{Binding CodeBitmapImage,UpdateSourceTrigger=PropertyChanged}"
-                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        
-             
-        </Button>
-
-        <!--<Button Click="Button_Click">
-            <Button.Template>
-                <ControlTemplate>
-                    <Border x:Name="theBorder"
-                        BorderBrush="Transparent"
-                        BorderThickness="2">
-                        <Image Name="imgCode"  Source="{Binding CodeSource}"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" TargetName="theBorder"
-                                Value="LightSkyBlue"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>-->
-
+    <Grid x:Name="grdRoot" >
+        <StackPanel>
+            <!--{Binding ImageSource,RelativeSource={RelativeSource AncestorType={x:Type local:ValidationCodeGenerator}}}-->
+            <Image Source="{Binding ImageSource,RelativeSource={RelativeSource AncestorType={x:Type local:ValidationCodeGenerator}}}"
+               MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+            <TextBlock Text="{Binding ValidationCode,RelativeSource={RelativeSource AncestorType={x:Type local:ValidationCodeGenerator}}}"/>
+        </StackPanel>
+       
     </Grid>
 </UserControl>
