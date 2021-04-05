@@ -208,8 +208,8 @@
                                           VerticalAlignment="Center" MinHeight="20"/>
 
                                             <!--Validation code image-->
-                                            <!--<Image Source="" Grid.Column="2"/>-->
-                                            <msc:ValidationCodeGenerator Name="vcg" Grid.Column="2"/>
+                                            <Image Source="" Grid.Column="2"/>
+                                            <!--<msc:ValidationCodeGenerator Name="vcg" Grid.Column="2"/>-->
                                         </Grid>
                                     </Border>
                                     <ControlTemplate.Triggers>
@@ -321,6 +321,7 @@
                 <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" FontSize="13" 
                            VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" LineHeight="22" Grid.Row="4"/>
             </Grid>
+            
             <!--Login bottom-->
             <Grid Grid.Row="2" Margin="10,0">
                 <Grid.RowDefinitions>
@@ -365,8 +366,7 @@
             </Grid>
 
             <Border Grid.Row="3" >
-
-                <msc:ValidationCodeGenerator />
+                <msc:ValidationCodeGenerator/>
             </Border>
                 <!--Progress bar-->
             <Border Background="Transparent" Grid.Row="1" Grid.RowSpan="2"  Visibility="{Binding ShowProgress}">

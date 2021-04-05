@@ -26,93 +26,48 @@ namespace ManagementSystemForCourses.Controls
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         public static extern bool DeleteObject(IntPtr hObject);
 
+        private string validationCode;
+
+        public string ValidationCode
+        {
+            get { return validationCode; }
+            set { 
+                validationCode = value; this.DoNotify();
+            }
+        }
+
+        private Bitmap validationCodeImage;
+
+        public Bitmap ValidationCodeImage
+        {
+            get { return validationCodeImage; }
+            set { validationCodeImage = value; this.DoNotify(); }
+        }
+
+
+        static int ImageHeight, ImageWidth;
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void DoNotify([CallerMemberName] string propName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
 
-        private string code;
-
-        public string Code
-        {
-            get { return code; }
-            set { code = value; }
-        }
-
-        private ImageSource codeSource;
-
-        public ImageSource CodeSource
-        {
-            get { return codeSource; }
-            set { codeSource = value; this.DoNotify(); }
-        }
-
-
-        private Bitmap codeBitmap;
-
-        public Bitmap CodeBitmap
-        {
-            get { return codeBitmap; }
-            set { codeBitmap = value; this.DoNotify(); }
-        }
-
-        private BitmapImage codeBitmapImage;
-
-        public BitmapImage CodeBitmapImage
-        {
-            get { return codeBitmapImage; }
-            set { codeBitmapImage = value; this.DoNotify(); }
-        }
-
-
-        private System.Windows.Controls.Image images;
-
-        public System.Windows.Controls.Image Images
-        {
-            get { return images; }
-            set { images = value; }
-        }
-
-
-        static int ImageHeight, ImageWidth;
 
         public ValidationCodeGenerator()
         {
             InitializeComponent();
-            this.SizeChanged += ValidationCodeGenerator_SizeChanged;
+            ImageHeight = (int)imageCode.Height;
+            ImageWidth = (int)imageCode.Width;
+            ValidationCode = GetImage();
         }
 
-        private void ValidationCodeGenerator_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            ImageHeight = (int)this.grdRoot.RenderSize.Height;
-            ImageWidth = (int)this.grdRoot.RenderSize.Width;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-            this.Refresh();
-        }
-
-        private void Refresh()
-        {
-           
-            this.UpdateImage();
-        }
-
-        int i = 0;
-        private void UpdateImage() 
-        {
-            this.CodeBitmap = CreateVerifyCode();
-            this.CodeSource = ChangeBitmapToImageSource(this.CodeBitmap);
-            this.CodeBitmapImage = this.BitmapToBitmapImage(this.CodeBitmap);
-            //this.imgCode.Source = this.CodeSource;
-            if (i == 0)
-            { i++; }
-        }
-
-        private Bitmap CreateVerifyCode()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns>bitmap</returns>
+        public static Bitmap CreateVerifyCode(out string code)
         {
             //Create Bitmap object and draw
             Bitmap bitmap = new Bitmap(ImageWidth, ImageHeight);
@@ -122,25 +77,26 @@ namespace ManagementSystemForCourses.Controls
             Random r = new Random();
             string letters = "QWERTYUIOPLKJHGFDSAZXCVBNM0987654321";//Every verify code is from here
             //StringBuilder sb = new StringBuilder();
-            this.Code = "";
+            code = "";
 
             //Create five letters randomly
             for (int i = 0; i < 4; i++)
             {
                 string letter = letters.Substring(r.Next(0, letters.Length - 1), 1);
                 //sb.Append(letter);
-                this.Code += letter;
+                code += letter;
                 graph.DrawString(letter, font, new SolidBrush(System.Drawing.Color.Black), i * 30, r.Next(0, 10));
             }
             //code = sb.ToString();
 
             //Confuse the background
             System.Drawing.Pen linePen = new System.Drawing.Pen(new SolidBrush(System.Drawing.Color.Black), 2);
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 4; i++)
             {
                 graph.DrawLine(linePen, new System.Drawing.Point(r.Next(0, ImageWidth - 1), r.Next(0, ImageHeight - 1)),
                     new System.Drawing.Point(r.Next(0, ImageWidth - 1), r.Next(0, ImageHeight - 1)));
             }
+
             return bitmap;
         }
         public static ImageSource ChangeBitmapToImageSource(Bitmap bitmap)
@@ -163,21 +119,44 @@ namespace ManagementSystemForCourses.Controls
                 DeleteObject(hBitmap);
                 return null;
             }
+
         }
 
-        private BitmapImage BitmapToBitmapImage(System.Drawing.Bitmap bitmap)
+        private void CheckCode()
         {
-            BitmapImage bitmapImage = new BitmapImage();
-            using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
+
+            string text_code = "";
+            if (text_code == "")
             {
-                bitmap.Save(ms, bitmap.RawFormat);
-                bitmapImage.BeginInit();
-                bitmapImage.StreamSource = ms;
-                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                bitmapImage.EndInit();
-                bitmapImage.Freeze();
+                MessageBox.Show("Please input the check code.", "提示");
+                ValidationCode = GetImage();//Update the verify code and then input again
             }
-            return bitmapImage;
+            else if (text_code != ValidationCode)
+            {
+                MessageBox.Show("Check code is error, please input correctly.", "提示");
+                ValidationCode = GetImage();//Update the verify code and then input again
+            }
+            else
+            {
+                MessageBox.Show("Bingo~", "提示");
+            }
+
+
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.GetImage();
+        }
+
+        public string GetImage()
+        {
+            string code = "";
+            Bitmap bitmap = CreateVerifyCode(out code);
+            ImageSource imageSource = ChangeBitmapToImageSource(bitmap);
+            imageCode.Source = imageSource;
+            return code;
+        }
+
     }
 }
