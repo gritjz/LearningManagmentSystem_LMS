@@ -11,7 +11,7 @@
             <!--{Binding ImageSource,RelativeSource={RelativeSource AncestorType={x:Type local:ValidationCodeGenerator}}}-->
             <Image Source="{Binding ImageSource,RelativeSource={RelativeSource AncestorType={x:Type local:ValidationCodeGenerator}}}"
                MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
-            <TextBlock Text="{Binding ValidationCode,RelativeSource={RelativeSource AncestorType={x:Type local:ValidationCodeGenerator}}}"/>
+            <TextBlock Background="Blue" Text="{Binding ValidationCode,RelativeSource={RelativeSource AncestorType={x:Type local:ValidationCodeGenerator}}}"/>
         </StackPanel>
        
     </Grid>

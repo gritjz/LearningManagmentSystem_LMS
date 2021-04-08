@@ -7,9 +7,9 @@
         xmlns:common="clr-namespace:ManagementSystemForCourses.Common"
         xmlns:msc="clr-namespace:ManagementSystemForCourses.Controls;assembly=ManagementSystemForCourses.Controls"
         mc:Ignorable="d"    Name="window1"
-        Title="Login" Height="650" Width="360"
+        Title="Login" Height="650" Width="1500"
         FontFamily="Microsoft YaHei" FontWeight="ExtraLight"
-        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize" WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
 
     <Window.Resources>
@@ -21,7 +21,7 @@
         -->
         <ResourceDictionary Source="../Assets/Styles/DefaultStyle.xaml">
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary>
+                <ResourceDictionary x:Name="RD1" >
 
 
                     <!--<ControlTemplate TargetType="Button" x:Key="CloseButtonTemplate" >
@@ -57,12 +57,13 @@
                             <Trigger Property="IsPressed" Value="True">
                                 <Setter Property="Background" Value="#44FFFFFF" TargetName="back"/>
                             </Trigger>
-
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
+                    
                     <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
                     <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
                     <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+                    
                     <Style x:Key="LoginViewUserNameTextBoxStyle" TargetType="{x:Type TextBox}">
                         <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
                         <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
@@ -116,6 +117,7 @@
                             </MultiTrigger>
                         </Style.Triggers>
                     </Style>
+                    
                     <Style x:Key="LoginViewPasswordPasswordBoxStyle1" TargetType="{x:Type PasswordBox}">
                         <Setter Property="PasswordChar" Value="●"/>
                         <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
@@ -173,6 +175,7 @@
                             </MultiTrigger>
                         </Style.Triggers>
                     </Style>
+                    
                     <Style x:Key="LoginViewValidateCodeTextBoxStyle" TargetType="{x:Type TextBox}">
                         <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
                         <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
@@ -203,13 +206,12 @@
                                            FontSize="15" Foreground="#555" FontFamily="../Assets/Fonts/#iconfont"/>
                                             <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" 
                                                 Focusable="false" 
-                                                HorizontalScrollBarVisibility="Hidden" 
+                                                HorizontalScrollBarVisibility="Hidden"   
                                                 VerticalScrollBarVisibility="Hidden"
                                                 VerticalAlignment="Center" MinHeight="20"/>
 
                                             <!--Validation code image-->
-                                            <msc:ValidationCodeGenerator Grid.Column="2"/>
-                                            <!--<msc:ValidationCodeGenerator Name="vcg" Grid.Column="2"/>-->
+                                            <msc:ValidationCodeGenerator x:Name="PART_validcode" Grid.Column="2"/>
                                         </Grid>
                                     </Border>
                                     <ControlTemplate.Triggers>
@@ -246,7 +248,6 @@
     <Border Margin="5" Background="White" CornerRadius="10">
         <Border.Effect>
             <DropShadowEffect Color="Gray" ShadowDepth="0" BlurRadius="5" Opacity="0.3" Direction="0"/>
-
         </Border.Effect>
         <Grid>
             <Grid.RowDefinitions>
@@ -254,6 +255,10 @@
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
             <Border Background="#007DFA" CornerRadius="10,10,0,0" MouseLeftButtonDown="WinTopMove_MouseLeftButtonDown"/>
             <Button Name="bdCloseButton" 
                     VerticalAlignment="Top" HorizontalAlignment="Right"    
@@ -302,7 +307,8 @@
                     </PasswordBox.InputBindings>
                 </PasswordBox>
                 <!--Login Validation Code-->
-                <TextBox Grid.Row="2" Height="40" 
+                <TextBox Grid.Row="2" Height="40" x:Name="txtValid"
+                         GotFocus="TextBox_GotFocus"
                          Style="{DynamicResource LoginViewValidateCodeTextBoxStyle}"
                          Text="{Binding LoginModel.ValidataionCode,UpdateSourceTrigger=PropertyChanged}">
                     <TextBox.InputBindings>
@@ -368,6 +374,26 @@
                 <ProgressBar VerticalAlignment="Top" Height="3" IsIndeterminate="True" Foreground="Orange"
                              Background="Transparent" BorderThickness="0"/>
             </Border>
+
+
+            <DockPanel Grid.Column="1" Grid.RowSpan="3">
+                <Button DockPanel.Dock="Bottom" Click="Button_Click" Name="bububu" Content="Click"></Button>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <DockPanel Grid.Column="0">
+                        <TextBlock DockPanel.Dock="Top" Text="Logic"></TextBlock>
+                        <TreeView Name="tvLogicTree"></TreeView>
+                    </DockPanel>
+                    <DockPanel Grid.Column="1">
+                        <TextBlock DockPanel.Dock="Top" Text="VisualTree" ></TextBlock>
+                        <TreeView Name="tvVisualTree"></TreeView>
+                    </DockPanel>
+                </Grid>
+            </DockPanel>
+
         </Grid>
     </Border>
 

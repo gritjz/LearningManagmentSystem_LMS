@@ -31,9 +31,7 @@ namespace ManagementSystemForCourses.Controls
 
         public static readonly DependencyProperty ImageSourceProperty =
               DependencyProperty.Register("ImageSource", typeof(ImageSource), typeof(ValidationCodeGenerator),
-              new FrameworkPropertyMetadata(null, new PropertyChangedCallback(OnPropertyChanged)));
-
-
+              new FrameworkPropertyMetadata(null));
 
 
         public string ValidationCode
@@ -43,26 +41,19 @@ namespace ManagementSystemForCourses.Controls
         }
 
         public static readonly DependencyProperty ValidationCodeProperty =
-            DependencyProperty.Register("ValidationCode", typeof(string), typeof(ValidationCodeGenerator), 
-                new PropertyMetadata(null, new PropertyChangedCallback(OnPropertyChanged)));
+            DependencyProperty.Register("ValidationCode", typeof(string), typeof(ValidationCodeGenerator),
+                new PropertyMetadata(null));
 
 
-        static bool updating = false;
         public static void OnPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-
-            if (updating)
-            {
-                (d as ValidationCodeGenerator).UpdateCode();
-               
-            }
+            (d as ValidationCodeGenerator).UpdateCode();
         }
 
 
         public ValidationCodeGenerator()
         {
             InitializeComponent();
-            UpdateCode();
            
             this.Loaded += ValidationCodeGenerator_Loaded; ;
             this.SizeChanged += ValidationCodeGenerator_SizeChanged;
@@ -73,7 +64,27 @@ namespace ManagementSystemForCourses.Controls
         {
             ImageWidth = (int)this.grdRoot.RenderSize.Width;
             ImageHeight = (int)this.grdRoot.RenderSize.Height;
+            UpdateCodeImage(ValidationCode);
+        }
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
             UpdateCode();
+        }
+        private void ValidationCodeGenerator_Loaded(object sender, RoutedEventArgs e)
+        {
+            //if (this.ValidationCode == null)
+                //this.UpdateCode();
+            //UpdateCodeImage(ValidationCode);
+        }
+        public void UpdateCode()
+        {
+            ValidationCode = CreateCode(4);
+            ImageSource = CreateValidationCodeImage(ValidationCode, ImageWidth, ImageHeight);
+        }
+
+        public void UpdateCodeImage(string code)
+        {
+            ImageSource = CreateValidationCodeImage(code, ImageWidth, ImageHeight);
         }
 
         private static string CreateCode(int strLength)
@@ -83,7 +94,7 @@ namespace ManagementSystemForCourses.Controls
             var randomCode = "";
             int temp = -1;
             Random rand = new Random(Guid.NewGuid().GetHashCode());
-            updating = false;
+
             for (int i = 0; i < strLength; i++)
             {
                 if (temp != -1)
@@ -111,12 +122,11 @@ namespace ManagementSystemForCourses.Controls
 
         private ImageSource CreateValidationCodeImage(string code, int width, int height)
         {
-            updating = false;
             if (string.IsNullOrWhiteSpace(code))
                 return null;
             if (width <= 0 || height <= 0)
                 return null;
-            
+
             DrawingVisual drawingVisual = new DrawingVisual();
 
             Random random = new Random(Guid.NewGuid().GetHashCode());
@@ -160,23 +170,6 @@ namespace ManagementSystemForCourses.Controls
             RenderTargetBitmap renderBitmap = new RenderTargetBitmap(70, 23, 96, 96, PixelFormats.Pbgra32);
             renderBitmap.Render(drawingVisual);
             return BitmapFrame.Create(renderBitmap);
-        }
-
-        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            updating = true;
-            UpdateCode();
-        }
-        private void ValidationCodeGenerator_Loaded(object sender, RoutedEventArgs e)
-        {
-            updating = true;
-            UpdateCode();
-        }
-        private void UpdateCode()
-        {
-            ValidationCode = CreateCode(4);
-            ImageSource = CreateValidationCodeImage(ValidationCode, ImageWidth, ImageHeight);
-            updating = false;
         }
     }
 }

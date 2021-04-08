@@ -35,7 +35,6 @@ namespace ManagementSystemForCourses.ViewModel
             {
                 showProgress = value; 
                 this.DoNotify();
-                
                 LoginCommand.RaiseCanExecuteChanged();
             }
         }
@@ -44,10 +43,8 @@ namespace ManagementSystemForCourses.ViewModel
         public LoginViewModel()
         {
             this.LoginModel = new LoginModel();
-            this.ValidCoder = new ValidationCodeGenerator();
-            StringBuilder s = new StringBuilder();
-            s.Append(ValidCoder.ValidationCode);
-            LoginModel.ValidataionCode = ValidCoder.ValidationCode;
+            
+           
             this.CloseWindowCommand = new CommandBase();
             this.CloseWindowCommand.DoExecute = new Action<object>((o) => 
             {
@@ -58,11 +55,11 @@ namespace ManagementSystemForCourses.ViewModel
             this.LoginCommand = new CommandBase();
             this.LoginCommand.DoExecute = new Action<object>(DoLogin);
             this.LoginCommand.DoCanExecute = new Func<object, bool>((o) => { return ShowProgress == Visibility.Collapsed; });
-
+            
         }
         //login logic Validation
         private void DoLogin(object o) 
-        {
+        { 
             this.ShowProgress = Visibility.Visible;
             this.ErrorMessage = "";
             if (string.IsNullOrEmpty(LoginModel.Username))
@@ -72,7 +69,7 @@ namespace ManagementSystemForCourses.ViewModel
                 return;
             }
 
-            if(string.IsNullOrEmpty(LoginModel.Password))
+            if (string.IsNullOrEmpty(LoginModel.Password))
             {
                 this.ErrorMessage = "Please Enter Password!";
                 this.ShowProgress = Visibility.Collapsed;
@@ -84,10 +81,10 @@ namespace ManagementSystemForCourses.ViewModel
                 this.ErrorMessage = "Please Enter Validation Code!";
                 this.ShowProgress = Visibility.Collapsed;
                 return;
-
             }
 
-            if (LoginModel.ValidataionCode.ToLower() != this.ValidCoder.ValidationCode)
+            if (LoginModel.ValidataionCode.Length < 4 || 
+                LoginModel.ValidataionCode.ToLower() != this.ValidCoder.ValidationCode)
             {
                 this.ErrorMessage = "Incorrect Validation Code!";
                 this.ShowProgress = Visibility.Collapsed;
@@ -115,15 +112,11 @@ namespace ManagementSystemForCourses.ViewModel
                     { 
                         (o as Window).DialogResult = true; 
                     }));
-                    
-
                 }
                 catch (Exception ex)
                 {
                     this.ErrorMessage = ex.Message;
                 }
-
-
             }));
         }
 
