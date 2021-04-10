@@ -28,10 +28,8 @@ namespace ManagementSystemForCourses.View
             InitializeComponent();
             loginVM = new LoginViewModel();
             this.DataContext = loginVM;
-            
         }
 
-       
         private void WinTopMove_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -51,77 +49,78 @@ namespace ManagementSystemForCourses.View
         }
 
 
-        static string GetTypeDescription(object obj)
-        {
-            return obj.GetType().Name;
-        }
+        //static string GetTypeDescription(object obj)
+        //{
+        //    return obj.GetType().Name;
+        //}
 
-        /// <summary>
-        /// 获取逻辑树
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public static TreeViewItem GetLogicTree(DependencyObject obj)
-        {
-            if (obj == null)
-            {
-                return null;
-            }
-            //创建逻辑树的节点
-            TreeViewItem treeItem = new TreeViewItem { Header = GetTypeDescription(obj), IsExpanded = true };
+        ///// <summary>
+        ///// 获取逻辑树
+        ///// </summary>
+        ///// <param name="obj"></param>
+        ///// <returns></returns>
+        //public static TreeViewItem GetLogicTree(DependencyObject obj)
+        //{
+        //    if (obj == null)
+        //    {
+        //        return null;
+        //    }
+        //    //创建逻辑树的节点
+        //    TreeViewItem treeItem = new TreeViewItem { Header = GetTypeDescription(obj), IsExpanded = true };
 
-            //循环遍历，获取逻辑树的所有子节点
-            foreach (var child in LogicalTreeHelper.GetChildren(obj))
-            {
-                //递归调用
-                var item = GetLogicTree(child as DependencyObject);
-                if (item != null)
-                {
-                    treeItem.Items.Add(item);
-                }
-            }
+        //    //循环遍历，获取逻辑树的所有子节点
+        //    foreach (var child in LogicalTreeHelper.GetChildren(obj))
+        //    {
+        //        //递归调用
+        //        var item = GetLogicTree(child as DependencyObject);
+        //        if (item != null)
+        //        {
+        //            treeItem.Items.Add(item);
+        //        }
+        //    }
 
-            return treeItem;
-        }
+        //    return treeItem;
+        //}
 
-        /// <summary>
-        /// 获取可视树
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public static TreeViewItem GetVisualTree(FrameworkElement obj)
-        {
-            if (obj == null)
-            {
-                return null;
-            }
+        ///// <summary>
+        ///// 获取可视树
+        ///// </summary>
+        ///// <param name="obj"></param>
+        ///// <returns></returns>
+        //public static TreeViewItem GetVisualTree(FrameworkElement obj)
+        //{
+        //    if (obj == null)
+        //    {
+        //        return null;
+        //    }
 
-            TreeViewItem treeItem = new TreeViewItem { Header =GetTypeDescription(obj), IsExpanded = true };
+        //    TreeViewItem treeItem = new TreeViewItem { Header =GetTypeDescription(obj), IsExpanded = true };
 
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
-            {
-                var child = VisualTreeHelper.GetChild(obj, i) as FrameworkElement;
-                var item = GetVisualTree(child);
-                if (child!=null&&child.GetType().Name == "ValidationCodeGenerator")
-                {
-                    break;
-                }
-                if (item != null)
-                {
-                    treeItem.Items.Add(item);
-                }
-            }
+        //    for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
+        //    {
+        //        var child = VisualTreeHelper.GetChild(obj, i) as FrameworkElement;
+        //        var item = GetVisualTree(child);
+        //        if (child!=null&&child.GetType().Name == "ValidationCodeGenerator")
+        //        {
+        //            break;
+        //        }
+        //        if (item != null)
+        //        {
+        //            treeItem.Items.Add(item);
+        //        }
+               
+        //    }
 
-            return treeItem;
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.tvLogicTree.Items.Add(LoginView.GetLogicTree(this));
-            this.tvVisualTree.Items.Add(LoginView.GetVisualTree(this));
+        //    return treeItem;
+        //}
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.tvLogicTree.Items.Add(LoginView.GetLogicTree(this));
+        //    this.tvVisualTree.Items.Add(LoginView.GetVisualTree(this));
+            
 
-
-           // TextBox hh = (TextBox)this.GetChildren<ValidationCodeGenerator>(null,null).FirstOrDefault();
-        }
+        //   // TextBox hh = (TextBox)this.GetChildren<ValidationCodeGenerator>(null,null).FirstOrDefault();
+        //}
 
       
 

@@ -211,7 +211,9 @@
                                                 VerticalAlignment="Center" MinHeight="20"/>
 
                                             <!--Validation code image-->
-                                            <msc:ValidationCodeGenerator x:Name="PART_validcode" Grid.Column="2"/>
+                                            <Image Source="{Binding ImageSource,RelativeSource={RelativeSource AncestorType={x:Type local:LoginView}}}" 
+                                                   MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+                                            <!--<msc:ValidationCodeGenerator x:Name="PART_validcode" Grid.Column="2"/>-->
                                         </Grid>
                                     </Border>
                                     <ControlTemplate.Triggers>

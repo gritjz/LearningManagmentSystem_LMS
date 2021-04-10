@@ -39,7 +39,6 @@ namespace ManagementSystemForCourses.ViewModel
             }
         }
 
-
         public LoginViewModel()
         {
             this.LoginModel = new LoginModel();
