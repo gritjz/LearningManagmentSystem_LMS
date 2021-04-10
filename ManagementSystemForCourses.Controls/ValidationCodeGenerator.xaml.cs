@@ -133,7 +133,7 @@ namespace ManagementSystemForCourses.Controls
 
             using (DrawingContext dc = drawingVisual.RenderOpen())
             {
-                dc.DrawRectangle(Brushes.White, new Pen(Brushes.Silver, 1D), new Rect(new Size(70, 23)));
+                dc.DrawRectangle(Brushes.Red, new Pen(Brushes.Silver, 1D), new Rect(new Size(70, 23)));
                 FormattedText formattedText = new FormattedText(code,
                     System.Globalization.CultureInfo.CurrentCulture, FlowDirection.LeftToRight,
                     new Typeface(new FontFamily("Arial"), FontStyles.Oblique, FontWeights.Bold, FontStretches.Normal),

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace ManagementSystemForCourses.Model
 {
-    public class LoginModel: NotifyBase
+    public class LoginModel : NotifyBase
     {
         private string username;
 
@@ -20,29 +21,73 @@ namespace ManagementSystemForCourses.Model
 
         public string Password
         {
-            get {
-                return password; 
+            get
+            {
+                return password;
             }
-            set 
-            { 
+            set
+            {
                 password = value;
                 this.DoNotify();
             }
         }
 
-        private string validataioncode;
+        private string validataionInputcode;
 
-        public string ValidataionCode
+        public string ValidataionInputCode
         {
-            get 
+            get
             {
-                return validataioncode; 
+                return validataionInputcode;
             }
-            set { 
-                validataioncode = value; 
-                this.DoNotify(); 
+            set
+            {
+
+                validataionInputcode = value;
+                this.DoNotify();
             }
         }
 
+        private ImageSource _validationCodeSource;
+
+        public ImageSource ValidationCodeSource
+        {
+            get { return _validationCodeSource; }
+            set
+            {
+                _validationCodeSource = value;
+                this.DoNotify();
+            }
+        }
+
+        private string _validationCode;
+
+        public string ValidationCode
+        {
+            get { return _validationCode; }
+            set
+            {
+                _validationCode = value;
+                this.DoNotify();
+            }
+        }
+
+        //private int _validationCodeWidth;
+
+        //public int ValidationCodeWidth
+        //{
+        //    get { return _validationCodeWidth; }
+        //    set { _validationCodeWidth = value; 
+        //        this.DoNotify(); }
+        //}
+
+        //private int _validationCodeHeight;
+
+        //public int ValidationCodeHeight
+        //{
+        //    get { return _validationCodeHeight; }
+        //    set { _validationCodeHeight = value; 
+        //        this.DoNotify(); }
+        //}
     }
 }

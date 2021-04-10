@@ -7,7 +7,7 @@
         xmlns:common="clr-namespace:ManagementSystemForCourses.Common"
         xmlns:msc="clr-namespace:ManagementSystemForCourses.Controls;assembly=ManagementSystemForCourses.Controls"
         mc:Ignorable="d"    Name="window1"
-        Title="Login" Height="650" Width="1500"
+        Title="Login" Height="850" Width="450"
         FontFamily="Microsoft YaHei" FontWeight="ExtraLight"
         ResizeMode="CanResize" WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
@@ -211,9 +211,22 @@
                                                 VerticalAlignment="Center" MinHeight="20"/>
 
                                             <!--Validation code image-->
-                                            <Image Source="{Binding ImageSource,RelativeSource={RelativeSource AncestorType={x:Type local:LoginView}}}" 
-                                                   MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
-                                            <!--<msc:ValidationCodeGenerator x:Name="PART_validcode" Grid.Column="2"/>-->
+                                            <!--<Image Source="{Binding ImageSource,RelativeSource={RelativeSource AncestorType={x:Type local:LoginView}}}" 
+                                                   MouseLeftButtonDown="Image_MouseLeftButtonDown"/>-->
+                                            <Border Grid.Column="2" 
+                                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                                    BorderThickness="{TemplateBinding BorderThickness}" 
+                                                    Background="{TemplateBinding Background}" 
+                                                    SnapsToDevicePixels="True" 
+                                                    CornerRadius="5"
+                                                    MouseLeftButtonDown="Code_MouseLeftButtonDown" 
+                                                    Loaded="Border_Loaded">
+                                                <Border.Effect>
+                                                    <DropShadowEffect Color="Wheat" ShadowDepth="0" BlurRadius="10" Opacity="0.3" />
+                                                </Border.Effect>
+                                                <Image x:Name="imgCode" 
+                                                   Source="{Binding LoginModel.ValidationCodeSource}" />
+                                            </Border>
                                         </Grid>
                                     </Border>
                                     <ControlTemplate.Triggers>
@@ -259,7 +272,6 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Border Background="#007DFA" CornerRadius="10,10,0,0" MouseLeftButtonDown="WinTopMove_MouseLeftButtonDown"/>
             <Button Name="bdCloseButton" 
@@ -309,10 +321,10 @@
                     </PasswordBox.InputBindings>
                 </PasswordBox>
                 <!--Login Validation Code-->
-                <TextBox Grid.Row="2" Height="40" x:Name="txtValid"
+                <TextBox Grid.Row="2" Height="40" x:Name="txtValidationCode"
                          GotFocus="TextBox_GotFocus"
                          Style="{DynamicResource LoginViewValidateCodeTextBoxStyle}"
-                         Text="{Binding LoginModel.ValidataionCode,UpdateSourceTrigger=PropertyChanged}">
+                         Text="{Binding LoginModel.ValidataionInputCode,UpdateSourceTrigger=PropertyChanged}">
                     <TextBox.InputBindings>
                         <KeyBinding Key="Enter" Command="{Binding LoginCommand}"
                                     CommandParameter="{Binding ElementName=window1}"/>
@@ -376,25 +388,6 @@
                 <ProgressBar VerticalAlignment="Top" Height="3" IsIndeterminate="True" Foreground="Orange"
                              Background="Transparent" BorderThickness="0"/>
             </Border>
-
-
-            <DockPanel Grid.Column="1" Grid.RowSpan="3">
-                <Button DockPanel.Dock="Bottom" Click="Button_Click" Name="bububu" Content="Click"></Button>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <DockPanel Grid.Column="0">
-                        <TextBlock DockPanel.Dock="Top" Text="Logic"></TextBlock>
-                        <TreeView Name="tvLogicTree"></TreeView>
-                    </DockPanel>
-                    <DockPanel Grid.Column="1">
-                        <TextBlock DockPanel.Dock="Top" Text="VisualTree" ></TextBlock>
-                        <TreeView Name="tvVisualTree"></TreeView>
-                    </DockPanel>
-                </Grid>
-            </DockPanel>
 
         </Grid>
     </Border>

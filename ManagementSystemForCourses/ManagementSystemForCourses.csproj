@@ -129,6 +129,7 @@
     <Compile Include="Common\GlobalValues.cs" />
     <Compile Include="Common\MD5Generator.cs" />
     <Compile Include="Common\PasswordHelper.cs" />
+    <Compile Include="Common\ValidationCoder.cs" />
     <Compile Include="Converter\BoolToArrowConverter.cs" />
     <Compile Include="Converter\BoolToColorConverter.cs" />
     <Compile Include="Converter\GenderConverter.cs" />

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace ManagementSystemForCourses.ViewModel
 {
@@ -16,7 +17,7 @@ namespace ManagementSystemForCourses.ViewModel
         public LoginModel LoginModel { get; set; } = new LoginModel();
         public CommandBase CloseWindowCommand { get; set; }
         public CommandBase LoginCommand { get; set; }
-        public ValidationCodeGenerator ValidCoder { get; set; }
+        //public ValidationCodeGenerator ValidCoder { get; set; }
 
         private string errorMessage;
 
@@ -43,9 +44,8 @@ namespace ManagementSystemForCourses.ViewModel
         {
             this.LoginModel = new LoginModel();
             
-           
             this.CloseWindowCommand = new CommandBase();
-            this.CloseWindowCommand.DoExecute = new Action<object>((o) => 
+            this.CloseWindowCommand.DoExecute = new Action<object>((o) =>
             {
                 (o as Window).Close();
             });
@@ -55,7 +55,18 @@ namespace ManagementSystemForCourses.ViewModel
             this.LoginCommand.DoExecute = new Action<object>(DoLogin);
             this.LoginCommand.DoCanExecute = new Func<object, bool>((o) => { return ShowProgress == Visibility.Collapsed; });
             
+           // UpdateValidationCode();
         }
+
+        public void UpdateValidationCode(int codeLength, int width, int height)
+        {
+            LoginModel.ValidationCode = ValidationCoder.CreateCode(codeLength);
+            if (!string.IsNullOrEmpty(LoginModel.ValidationCode))
+            { 
+                LoginModel.ValidationCodeSource = ValidationCoder.CreateValidationCodeImage(LoginModel.ValidationCode, width, height); 
+            }
+        }
+
         //login logic Validation
         private void DoLogin(object o) 
         { 
@@ -75,15 +86,15 @@ namespace ManagementSystemForCourses.ViewModel
                 return;
             }
 
-            if (string.IsNullOrEmpty(LoginModel.ValidataionCode))
+            if (string.IsNullOrEmpty(LoginModel.ValidataionInputCode))
             {
                 this.ErrorMessage = "Please Enter Validation Code!";
                 this.ShowProgress = Visibility.Collapsed;
                 return;
             }
 
-            if (LoginModel.ValidataionCode.Length < 4 || 
-                LoginModel.ValidataionCode.ToLower() != this.ValidCoder.ValidationCode)
+            if (LoginModel.ValidataionInputCode.Length < 4 || 
+                LoginModel.ValidataionInputCode != LoginModel.ValidationCode.ToLower())
             {
                 this.ErrorMessage = "Incorrect Validation Code!";
                 this.ShowProgress = Visibility.Collapsed;
