@@ -28,7 +28,7 @@ namespace ManagementSystemForCourses.View
             MainViewModel model = new MainViewModel();
             this.DataContext = model;
 
-
+           
             model.UserInfo.Avatar = GlobalValues.UserInfo.Avatar;
             model.UserInfo.UserName = GlobalValues.UserInfo.RealName;
             model.UserInfo.Gender = GlobalValues.UserInfo.Gender;

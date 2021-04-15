@@ -55,6 +55,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoUpdater.NET, Version=1.6.4.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autoupdater.NET.Official.1.6.4\lib\net45\AutoUpdater.NET.dll</HintPath>
+    </Reference>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
     </Reference>
@@ -70,6 +73,7 @@
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
@@ -207,6 +211,7 @@
     <Content Include="Assets\db_scripts\data_only.sql" />
     <Content Include="Assets\db_scripts\schemaanddata.sql" />
     <Content Include="Assets\db_scripts\schemaOnly.sql" />
+    <Resource Include="Update\update.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
